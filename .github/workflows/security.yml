@@ -17,7 +17,7 @@ jobs:
         uses: cosmos/gosec@master
         with:
           # we let the report trigger content trigger a failure using the GitHub Security features.
-          args: '-no-fail -fmt sarif -out results.sarif ./...'
+          args: ' -exclude=G705 -no-fail -fmt sarif -out results.sarif ./...'
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
