@@ -35,7 +35,7 @@ point is based on Cosmos SDK (which in turn is based on Tendermint), so if you k
 
 ## Prerequisites
 
-Minimum hardware requirements: https://docs.pointnetwork.io/validators/overview.html#hardware
+Minimum hardware requirements: [https://docs.pointnetwork.io/docs/point_chain/validators/overview#hardware](https://docs.pointnetwork.io/docs/point_chain/validators/overview#hardware)
 
 Most of the commands here are provided for and tested on Ubuntu Server 22.04 LTS, so change them accordingly (pacman instead of apt-get if you’re on Arch for example, or brew on Mac OS)
 
