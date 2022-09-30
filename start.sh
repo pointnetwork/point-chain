@@ -1,1 +1,1 @@
-ulimit -n 1048576 && evmosd start --evm.tracer json --trace-store ~/.evmosd/tracestore.json --pruning=nothing  --log_level info --minimum-gas-prices=0.001apoint --json-rpc.api eth,txpool,personal,net,debug,web3
+ulimit -n 1048576 && pointd start --evm.tracer json --trace-store ~/.pointd/tracestore.json --pruning=nothing  --log_level info --minimum-gas-prices=0.001apoint --json-rpc.api eth,txpool,personal,net,debug,web3
