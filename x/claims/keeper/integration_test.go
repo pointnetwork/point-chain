@@ -21,21 +21,21 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/encoding"
-	"github.com/point/ethermint/tests"
-	evmtypes "github.com/point/ethermint/x/evm/types"
 	"github.com/pointnetwork/point-chain/v9/app"
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	incentivestypes "github.com/pointnetwork/point-chain/v9/x/incentives/types"
 	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/encoding"
+	"github.com/tharsis/ethermint/tests"
+	evmtypes "github.com/tharsis/ethermint/x/evm/types"
 
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
-	"github.com/point/ethermint/server/config"
-	evm "github.com/point/ethermint/x/evm/types"
 	"github.com/pointnetwork/point-chain/v9/contracts"
 	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/tharsis/ethermint/server/config"
+	evm "github.com/tharsis/ethermint/x/evm/types"
 )
 
 var _ = Describe("Claiming", Ordered, func() {

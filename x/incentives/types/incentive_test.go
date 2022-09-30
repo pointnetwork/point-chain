@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/point/ethermint/tests"
+	"github.com/tharsis/ethermint/tests"
 )
 
 type IncentiveTestSuite struct {

@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	ethermint "github.com/point/ethermint/types"
+	ethermint "github.com/tharsis/ethermint/types"
 )
 
 // NewIncentive returns an instance of Incentive

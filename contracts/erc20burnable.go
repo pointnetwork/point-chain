@@ -4,7 +4,7 @@ import (
 	_ "embed" // embed compiled smart contract
 	"encoding/json"
 
-	evmtypes "github.com/point/ethermint/x/evm/types"
+	evmtypes "github.com/tharsis/ethermint/x/evm/types"
 )
 
 var (

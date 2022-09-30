@@ -14,13 +14,13 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/encoding"
-	"github.com/point/ethermint/tests"
-	evmtypes "github.com/point/ethermint/x/evm/types"
 	"github.com/pointnetwork/point-chain/v8/app"
 	"github.com/pointnetwork/point-chain/v8/testutil"
 	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/encoding"
+	"github.com/tharsis/ethermint/tests"
+	evmtypes "github.com/tharsis/ethermint/x/evm/types"
 
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 

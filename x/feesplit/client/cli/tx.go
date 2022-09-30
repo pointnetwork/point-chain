@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	ethermint "github.com/point/ethermint/types"
+	ethermint "github.com/tharsis/ethermint/types"
 
 	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
 )

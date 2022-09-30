@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/point/ethermint/tests"
+	"github.com/tharsis/ethermint/tests"
 
 	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
 )

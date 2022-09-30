@@ -7,11 +7,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	"github.com/point/ethermint/encoding"
 	"github.com/pointnetwork/point-chain/v9/app"
 	v2 "github.com/pointnetwork/point-chain/v9/x/claims/migrations/v2"
 	claims "github.com/pointnetwork/point-chain/v9/x/claims/types"
 	"github.com/stretchr/testify/require"
+	"github.com/tharsis/ethermint/encoding"
 )
 
 func TestStoreMigration(t *testing.T) {

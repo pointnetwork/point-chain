@@ -8,9 +8,9 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/tests"
-	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/tests"
+	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
@@ -18,7 +18,6 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	evm "github.com/point/ethermint/x/evm/types"
 	"github.com/pointnetwork/point-chain/v9/app"
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	"github.com/pointnetwork/point-chain/v9/x/claims/types"
@@ -29,6 +28,7 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
+	evm "github.com/tharsis/ethermint/x/evm/types"
 )
 
 type KeeperTestSuite struct {

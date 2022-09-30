@@ -4,9 +4,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/x/genutil/types"
 
-	feemarketv010 "github.com/point/ethermint/x/feemarket/migrations/v010"
-	feemarketv09types "github.com/point/ethermint/x/feemarket/migrations/v09/types"
-	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
+	feemarketv010 "github.com/tharsis/ethermint/x/feemarket/migrations/v010"
+	feemarketv09types "github.com/tharsis/ethermint/x/feemarket/migrations/v09/types"
+	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 )
 
 // MigrateGenesis migrates exported state from v2 to v3 genesis state.

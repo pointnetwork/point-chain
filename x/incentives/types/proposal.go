@@ -6,7 +6,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
-	ethermint "github.com/point/ethermint/types"
+	ethermint "github.com/tharsis/ethermint/types"
 )
 
 // constants

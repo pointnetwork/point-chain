@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
-	ethermint "github.com/point/ethermint/types"
+	ethermint "github.com/tharsis/ethermint/types"
 )
 
 var (

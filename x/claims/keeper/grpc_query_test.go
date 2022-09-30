@@ -6,9 +6,9 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/point/ethermint/tests"
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	"github.com/pointnetwork/point-chain/v9/x/claims/types"
+	"github.com/tharsis/ethermint/tests"
 )
 
 func (suite *KeeperTestSuite) TestTotalUnclaimed() {

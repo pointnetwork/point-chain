@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/point/ethermint/tests"
+	"github.com/tharsis/ethermint/tests"
 
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	length "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"

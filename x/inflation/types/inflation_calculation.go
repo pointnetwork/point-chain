@@ -3,7 +3,7 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	ethermint "github.com/point/ethermint/types"
+	ethermint "github.com/tharsis/ethermint/types"
 )
 
 // CalculateEpochProvisions returns mint provision per epoch

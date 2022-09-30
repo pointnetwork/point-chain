@@ -17,7 +17,7 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	evm "github.com/point/ethermint/x/evm/types"
+	evm "github.com/tharsis/ethermint/x/evm/types"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 	epochstypes "github.com/pointnetwork/point-chain/v9/x/epochs/types"

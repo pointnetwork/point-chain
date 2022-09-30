@@ -19,9 +19,9 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/point/ethermint/encoding"
 	"github.com/pointnetwork/point-chain/v9/types"
 	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
+	"github.com/tharsis/ethermint/encoding"
 )
 
 func TestPointExport(t *testing.T) {

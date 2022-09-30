@@ -15,9 +15,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/tests"
-	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/tests"
+	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 
 	ibctransfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 

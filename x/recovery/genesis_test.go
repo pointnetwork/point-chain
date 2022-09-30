@@ -12,8 +12,8 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/point/ethermint/tests"
-	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
+	"github.com/tharsis/ethermint/tests"
+	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 	"github.com/pointnetwork/point-chain/v9/x/recovery"

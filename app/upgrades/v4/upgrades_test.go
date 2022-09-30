@@ -16,8 +16,8 @@ import (
 	clienttypes "github.com/cosmos/ibc-go/v5/modules/core/02-client/types"
 	tmclient "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 	v4 "github.com/pointnetwork/point-chain/v9/app/upgrades/v4"

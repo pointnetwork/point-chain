@@ -7,7 +7,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	evm "github.com/point/ethermint/x/evm/types"
+	evm "github.com/tharsis/ethermint/x/evm/types"
 )
 
 var DefaultInflationDenom = evm.DefaultEVMDenom

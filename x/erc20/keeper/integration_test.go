@@ -11,9 +11,9 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/encoding"
-	ethermint "github.com/point/ethermint/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/encoding"
+	ethermint "github.com/tharsis/ethermint/types"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 	"github.com/pointnetwork/point-chain/v9/testutil"

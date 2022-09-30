@@ -22,8 +22,8 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
 
-	"github.com/point/ethermint/encoding"
-	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
+	"github.com/tharsis/ethermint/encoding"
+	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 
 	"github.com/pointnetwork/point-chain/v9/cmd/config"
 	"github.com/pointnetwork/point-chain/v9/types"

@@ -8,8 +8,8 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/point/ethermint/tests"
-	"github.com/point/ethermint/x/evm/statedb"
+	"github.com/tharsis/ethermint/tests"
+	"github.com/tharsis/ethermint/x/evm/statedb"
 
 	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
 )

@@ -15,7 +15,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	ethermint "github.com/point/ethermint/types"
+	ethermint "github.com/tharsis/ethermint/types"
 
 	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )

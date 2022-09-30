@@ -13,7 +13,7 @@ POINT_BINARY = pointd
 POINT_DIR = point
 BUILDDIR ?= $(CURDIR)/build
 SIMAPP = ./app
-HTTPS_GIT := https://github.com/pointnetwork/point-chain
+HTTPS_GIT := https://github.com/pointnetwork/point-chain.git
 DOCKER := $(shell which docker)
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bufbuild/buf
 NAMESPACE :=pointnetwork
@@ -470,7 +470,7 @@ proto-check-breaking:
 TM_URL              = https://raw.githubusercontent.com/tendermint/tendermint/v0.34.20/proto/tendermint
 GOGO_PROTO_URL      = https://raw.githubusercontent.com/regen-network/protobuf/cosmos
 COSMOS_SDK_URL      = https://raw.githubusercontent.com/cosmos/cosmos-sdk/v0.46.0
-ETHERMINT_URL       = https://raw.githubusercontent.com/point/ethermint/v0.6.1
+ETHERMINT_URL       = https://raw.githubusercontent.com/tharsis/ethermint/v0.6.1
 IBC_GO_URL          = https://raw.githubusercontent.com/cosmos/ibc-go/v5.0.0-beta1
 COSMOS_PROTO_URL    = https://raw.githubusercontent.com/regen-network/cosmos-proto/master
 

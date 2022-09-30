@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"cosmossdk.io/math"
-	"github.com/point/ethermint/tests"
 	"github.com/stretchr/testify/require"
+	"github.com/tharsis/ethermint/tests"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

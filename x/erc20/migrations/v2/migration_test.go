@@ -10,7 +10,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/point/ethermint/encoding"
+	"github.com/tharsis/ethermint/encoding"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 	v2 "github.com/pointnetwork/point-chain/v9/x/erc20/migrations/v2"

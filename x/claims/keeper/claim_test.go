@@ -12,11 +12,11 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/tests"
-	ethermint "github.com/point/ethermint/types"
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/tests"
+	ethermint "github.com/tharsis/ethermint/types"
 
 	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 )

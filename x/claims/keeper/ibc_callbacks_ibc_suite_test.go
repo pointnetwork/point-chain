@@ -12,11 +12,11 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v5/testing"
 
-	"github.com/point/ethermint/tests"
 	"github.com/pointnetwork/point-chain/v9/app"
 	ibctesting "github.com/pointnetwork/point-chain/v9/ibc/testing"
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	"github.com/pointnetwork/point-chain/v9/x/claims/types"
+	"github.com/tharsis/ethermint/tests"
 )
 
 type IBCTestingSuite struct {

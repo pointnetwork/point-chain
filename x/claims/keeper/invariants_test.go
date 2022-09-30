@@ -3,7 +3,7 @@ package keeper_test
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/point/ethermint/tests"
+	"github.com/tharsis/ethermint/tests"
 
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	"github.com/pointnetwork/point-chain/v9/x/claims/types"

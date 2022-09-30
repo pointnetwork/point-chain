@@ -18,9 +18,9 @@ import (
 	ibcgotesting "github.com/cosmos/ibc-go/v5/testing"
 	"github.com/cosmos/ibc-go/v5/testing/mock"
 
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	ethermint "github.com/point/ethermint/types"
-	evmtypes "github.com/point/ethermint/x/evm/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	ethermint "github.com/tharsis/ethermint/types"
+	evmtypes "github.com/tharsis/ethermint/x/evm/types"
 )
 
 // ChainIDPrefix defines the default chain ID prefix for Point test chains

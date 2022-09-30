@@ -6,9 +6,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"github.com/point/ethermint/tests"
 	"github.com/pointnetwork/point-chain/v9/testutil"
 	"github.com/pointnetwork/point-chain/v9/x/vesting/types"
+	"github.com/tharsis/ethermint/tests"
 )
 
 func (suite *KeeperTestSuite) TestBalances() {

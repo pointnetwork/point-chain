@@ -29,12 +29,12 @@ import (
 	"github.com/tendermint/tendermint/version"
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/point/ethermint/crypto/ethsecp256k1"
-	"github.com/point/ethermint/encoding"
-	"github.com/point/ethermint/server/config"
-	"github.com/point/ethermint/tests"
-	ethermint "github.com/point/ethermint/types"
-	evm "github.com/point/ethermint/x/evm/types"
+	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/tharsis/ethermint/encoding"
+	"github.com/tharsis/ethermint/server/config"
+	"github.com/tharsis/ethermint/tests"
+	ethermint "github.com/tharsis/ethermint/types"
+	evm "github.com/tharsis/ethermint/x/evm/types"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 	"github.com/pointnetwork/point-chain/v9/contracts"

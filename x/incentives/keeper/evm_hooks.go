@@ -8,8 +8,8 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	ethermint "github.com/point/ethermint/types"
-	evmtypes "github.com/point/ethermint/x/evm/types"
+	ethermint "github.com/tharsis/ethermint/types"
+	evmtypes "github.com/tharsis/ethermint/x/evm/types"
 
 	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
 )
