@@ -27,24 +27,24 @@ import (
 	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
 )
 
-// TestnetDenomMetadata defines the metadata for the tEVMOS denom on testnet
+// TestnetDenomMetadata defines the metadata for the uPOINT denom on testnet
 var TestnetDenomMetadata = banktypes.Metadata{
-	Description: "The native EVM, governance and staking token of the Evmos testnet",
+	Description: "The native EVM, governance and staking token of the Point Network testnet",
 	DenomUnits: []*banktypes.DenomUnit{
 		{
 			Denom:    "atpoint",
 			Exponent: 0,
-			Aliases:  []string{"attotevmos"},
+			Aliases:  []string{"attotpoint"},
 		},
 		{
-			Denom:    "tevmos",
+			Denom:    "tpoint",
 			Exponent: 18,
 		},
 	},
 	Base:    "atpoint",
-	Display: "tevmos",
-	Name:    "Testnet Evmos",
-	Symbol:  "tEVMOS",
+	Display: "upoint",
+	Name:    "Testnet Point",
+	Symbol:  "uPOINT",
 }
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v5
