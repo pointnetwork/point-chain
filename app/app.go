@@ -107,27 +107,29 @@ import (
 	// unnamed import of statik for swagger UI support
 	_ "github.com/pointnetwork/point-chain/v8/client/docs/statik"
 
-	"github.com/pointnetwork/point-chain/v8/app/ante"
+	"github.com/pointnetwork/point-chain/v8/app/ante"   
+
 	v2 "github.com/pointnetwork/point-chain/v8/app/upgrades/v2"
 	v4 "github.com/pointnetwork/point-chain/v8/app/upgrades/v4"
 	v5 "github.com/pointnetwork/point-chain/v8/app/upgrades/v5"
 	v6 "github.com/pointnetwork/point-chain/v8/app/upgrades/v6"
 	v7 "github.com/pointnetwork/point-chain/v8/app/upgrades/v7"
-	v8 "github.com/pointnetwork/point-chain/v8/app/upgrades/v8"
+	v8 "github.com/pointnetwork/point-chain/v8/app/upgrades/v8"  
+  	v81 "github.com/pointnetwork/point-chain/v8/app/upgrades/v8_1"
 	"github.com/pointnetwork/point-chain/v8/x/claims"
 	claimskeeper "github.com/pointnetwork/point-chain/v8/x/claims/keeper"
-	claimstypes "github.com/pointnetwork/point-chain/v8/x/claims/types"
+	claimstypes "github.com/pointnetwork/point-chain/v8/x/claims/types"  
 	"github.com/pointnetwork/point-chain/v8/x/epochs"
 	epochskeeper "github.com/pointnetwork/point-chain/v8/x/epochs/keeper"
 	epochstypes "github.com/pointnetwork/point-chain/v8/x/epochs/types"
-	"github.com/pointnetwork/point-chain/v8/x/erc20"
+	"github.com/pointnetwork/point-chain/v8/x/erc20"  
 	erc20client "github.com/pointnetwork/point-chain/v8/x/erc20/client"
 	erc20keeper "github.com/pointnetwork/point-chain/v8/x/erc20/keeper"
 	erc20types "github.com/pointnetwork/point-chain/v8/x/erc20/types"
-	"github.com/pointnetwork/point-chain/v8/x/feesplit"
+	"github.com/pointnetwork/point-chain/v8/x/feesplit"  
 	feesplitkeeper "github.com/pointnetwork/point-chain/v8/x/feesplit/keeper"
 	feesplittypes "github.com/pointnetwork/point-chain/v8/x/feesplit/types"
-	"github.com/pointnetwork/point-chain/v8/x/incentives"
+	"github.com/pointnetwork/point-chain/v8/x/incentives"  
 	incentivesclient "github.com/pointnetwork/point-chain/v8/x/incentives/client"
 	incentiveskeeper "github.com/pointnetwork/point-chain/v8/x/incentives/keeper"
 	incentivestypes "github.com/pointnetwork/point-chain/v8/x/incentives/types"
@@ -1089,6 +1091,14 @@ func (app *Evmos) setupUpgradeHandlers() {
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v8.UpgradeName,
 		v8.CreateUpgradeHandler(
+			app.mm, app.configurator,
+		),
+	)
+
+	// v8.1 upgrade handler
+	app.UpgradeKeeper.SetUpgradeHandler(
+		v81.UpgradeName,
+		v81.CreateUpgradeHandler(
 			app.mm, app.configurator,
 		),
 	)
