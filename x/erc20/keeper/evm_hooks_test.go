@@ -8,9 +8,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
+	"github.com/evmos/ethermint/tests"
 	"github.com/pointnetwork/point-chain/v9/contracts"
 	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
-	"github.com/tharsis/ethermint/tests"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the erc20 hook is already set

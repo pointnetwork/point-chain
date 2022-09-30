@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	ethermint "github.com/tharsis/ethermint/types"
+	ethermint "github.com/evmos/ethermint/types"
 
 	point "github.com/pointnetwork/point-chain/v9/types"
 	incentivestypes "github.com/pointnetwork/point-chain/v9/x/incentives/types"

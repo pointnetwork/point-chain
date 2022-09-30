@@ -13,8 +13,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	"github.com/evmos/ethermint/crypto/ethsecp256k1"
+	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	"github.com/pointnetwork/point-chain/v9/app"
 )

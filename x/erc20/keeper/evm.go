@@ -13,8 +13,8 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/tharsis/ethermint/server/config"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/evmos/ethermint/server/config"
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
 	"github.com/pointnetwork/point-chain/v9/contracts"
 	"github.com/pointnetwork/point-chain/v9/x/erc20/types"

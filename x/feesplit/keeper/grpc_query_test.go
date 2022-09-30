@@ -6,8 +6,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
+	"github.com/evmos/ethermint/tests"
 	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
-	"github.com/tharsis/ethermint/tests"
 )
 
 func (suite *KeeperTestSuite) TestFeeSplits() {

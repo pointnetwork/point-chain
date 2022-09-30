@@ -11,8 +11,8 @@ import (
 
 	ibctransferkeeper "github.com/cosmos/ibc-go/v5/modules/apps/transfer/keeper"
 
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	v5 "github.com/pointnetwork/point-chain/v9/app/upgrades/v5"
 	"github.com/pointnetwork/point-chain/v9/types"

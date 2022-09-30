@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/evmos/ethermint/tests"
 	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
-	"github.com/tharsis/ethermint/tests"
 )
 
 func (suite *KeeperTestSuite) TestGetFees() {
