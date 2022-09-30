@@ -52,15 +52,15 @@ done
 
 set -euxo pipefail
 
-DATA_DIR=$(mktemp -d -t evmos-datadir.XXXXX)
+DATA_DIR=$(mktemp -d -t point-datadir.XXXXX)
 
 if [[ ! "$DATA_DIR" ]]; then
     echo "Could not create $DATA_DIR"
     exit 1
 fi
 
-# Compile evmos
-echo "compiling evmos"
+# Compile point
+echo "compiling point"
 make build
 
 # PID array declaration
@@ -103,17 +103,17 @@ init_func() {
 }
 
 start_func() {
-    echo "starting evmos node $i in background ..."
+    echo "starting point node $i in background ..."
     "$PWD"/build/pointd start --pruning=nothing --rpc.unsafe \
     --p2p.laddr tcp://$IP_ADDR:$NODE_P2P_PORT"$i" --address tcp://$IP_ADDR:$NODE_PORT"$i" --rpc.laddr tcp://$IP_ADDR:$NODE_RPC_PORT"$i" \
     --json-rpc.address=$IP_ADDR:$RPC_PORT"$i" \
     --keyring-backend test --home "$DATA_DIR$i" \
     >"$DATA_DIR"/node"$i".log 2>&1 & disown
 
-    EVMOS_PID=$!
-    echo "started evmos node, pid=$EVMOS_PID"
+    POINT_PID=$!
+    echo "started point node, pid=$POINT_PID"
     # add PID to array
-    arr+=("$EVMOS_PID")
+    arr+=("$POINT_PID")
 
     if [[ $MODE == "pending" ]]; then
       echo "waiting for the first block..."
@@ -147,7 +147,7 @@ if [[ -z $TEST || $TEST == "rpc" ||  $TEST == "pending" ]]; then
 
     for i in $(seq 1 "$TEST_QTD"); do
         HOST_RPC=http://$IP_ADDR:$RPC_PORT"$i"
-        echo "going to test evmos node $HOST_RPC ..."
+        echo "going to test point node $HOST_RPC ..."
         MODE=$MODE HOST=$HOST_RPC go test ./tests/... -timeout=$time_out -v -short
 
         RPC_FAIL=$?
@@ -156,12 +156,12 @@ if [[ -z $TEST || $TEST == "rpc" ||  $TEST == "pending" ]]; then
 fi
 
 stop_func() {
-    EVMOS_PID=$i
-    echo "shutting down node, pid=$EVMOS_PID ..."
+    POINT_PID=$i
+    echo "shutting down node, pid=$POINT_PID ..."
 
-    # Shutdown evmos node
-    kill -9 "$EVMOS_PID"
-    wait "$EVMOS_PID"
+    # Shutdown point node
+    kill -9 "$POINT_PID"
+    wait "$POINT_PID"
 
     if [ $REMOVE_DATA_DIR == "true" ]
     then

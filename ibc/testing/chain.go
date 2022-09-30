@@ -18,12 +18,12 @@ import (
 	ibcgotesting "github.com/cosmos/ibc-go/v5/testing"
 	"github.com/cosmos/ibc-go/v5/testing/mock"
 
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	ethermint "github.com/evmos/ethermint/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	ethermint "github.com/point/ethermint/types"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 )
 
-// ChainIDPrefix defines the default chain ID prefix for Evmos test chains
+// ChainIDPrefix defines the default chain ID prefix for Point test chains
 var ChainIDPrefix = "point_10687"
 
 func init() {

@@ -5,9 +5,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	ethermint "github.com/evmos/ethermint/types"
-	incentivestypes "github.com/evmos/evmos/v9/x/incentives/types"
-	"github.com/evmos/evmos/v9/x/inflation/types"
+	ethermint "github.com/point/ethermint/types"
+	incentivestypes "github.com/point/point/v9/x/incentives/types"
+	"github.com/point/point/v9/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestMintAndAllocateInflation() {

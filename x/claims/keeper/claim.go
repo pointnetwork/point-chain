@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/x/claims/types"
 )
 
 // ClaimCoinsForAction removes the claimable amount entry from a claims record
@@ -103,10 +103,10 @@ func (k Keeper) MergeClaimsRecords(
 	for _, action := range actions {
 
 		// Safety check: the sender record cannot have any claimed actions, as
-		//  - the sender is not an evmos address and can't claim vote, delegation or evm actions
+		//  - the sender is not an point address and can't claim vote, delegation or evm actions
 		//  - the first attempt to perform an ibc callback from the senders account will merge/migrate the entire claims record
 		if senderClaimsRecord.HasClaimedAction(action) {
-			return types.ClaimsRecord{}, sdkerrors.Wrapf(errortypes.ErrNotSupported, "non-evmos sender must not have claimed action: %v", action)
+			return types.ClaimsRecord{}, sdkerrors.Wrapf(errortypes.ErrNotSupported, "non-point sender must not have claimed action: %v", action)
 		}
 
 		recipientCompleted := recipientClaimsRecord.HasClaimedAction(action)

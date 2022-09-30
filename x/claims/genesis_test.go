@@ -12,13 +12,13 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/evmos/ethermint/tests"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/tests"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/testutil"
-	"github.com/evmos/evmos/v9/x/claims"
-	"github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/app"
+	"github.com/point/point/v9/testutil"
+	"github.com/point/point/v9/x/claims"
+	"github.com/point/point/v9/x/claims/types"
 )
 
 type GenesisTestSuite struct {
@@ -26,7 +26,7 @@ type GenesisTestSuite struct {
 
 	ctx sdk.Context
 
-	app     *app.Evmos
+	app     *app.Point
 	genesis types.GenesisState
 }
 
@@ -78,8 +78,8 @@ func TestGenesisTestSuite(t *testing.T) {
 
 var (
 	now  = time.Now().UTC()
-	acc1 = sdk.MustAccAddressFromBech32("evmos1qxx0fdsmruzuar2fay88lfw6sce6emamyu2s8h4d")
-	acc2 = sdk.MustAccAddressFromBech32("evmos1nsrs4t7dngkdltehkm3p6n8dp22sz3mct9uhc8")
+	acc1 = sdk.MustAccAddressFromBech32("point1qxx0fdsmruzuar2fay88lfw6sce6emamyu2s8h4d")
+	acc2 = sdk.MustAccAddressFromBech32("point1nsrs4t7dngkdltehkm3p6n8dp22sz3mct9uhc8")
 )
 
 func (suite *GenesisTestSuite) TestClaimInitGenesis() {

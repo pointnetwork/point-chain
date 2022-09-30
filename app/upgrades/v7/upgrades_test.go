@@ -14,21 +14,21 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v9/app"
-	v7 "github.com/evmos/evmos/v9/app/upgrades/v7"
-	"github.com/evmos/evmos/v9/testutil"
-	evmostypes "github.com/evmos/evmos/v9/types"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/app"
+	v7 "github.com/point/point/v9/app/upgrades/v7"
+	"github.com/point/point/v9/testutil"
+	pointtypes "github.com/point/point/v9/types"
+	claimstypes "github.com/point/point/v9/x/claims/types"
 )
 
 type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *app.Evmos
+	app         *app.Point
 	consAddress sdk.ConsAddress
 }
 
@@ -87,7 +87,7 @@ func (suite *UpgradeTestSuite) TestMigrateFaucetBalance() {
 	}{
 		{
 			"Testnet - sucess",
-			evmostypes.TestnetChainID + "-4",
+			pointtypes.TestnetChainID + "-4",
 			true,
 		},
 	}
@@ -128,7 +128,7 @@ func (suite *UpgradeTestSuite) TestMigrateSkippedEpochs() {
 	}{
 		{
 			"success",
-			evmostypes.MainnetChainID + "-2",
+			pointtypes.MainnetChainID + "-2",
 			func() {
 				suite.app.InflationKeeper.SetSkippedEpochs(suite.ctx, uint64(94))
 			},
@@ -180,7 +180,7 @@ func (suite *UpgradeTestSuite) TestMigrateClaim() {
 	}
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
-			suite.SetupTest(evmostypes.TestnetChainID + "-2") // reset
+			suite.SetupTest(pointtypes.TestnetChainID + "-2") // reset
 
 			tc.malleate()
 

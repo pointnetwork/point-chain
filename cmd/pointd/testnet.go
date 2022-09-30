@@ -37,16 +37,16 @@ import (
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/evmos/ethermint/crypto/hd"
-	"github.com/evmos/ethermint/server/config"
-	srvflags "github.com/evmos/ethermint/server/flags"
+	"github.com/point/ethermint/crypto/hd"
+	"github.com/point/ethermint/server/config"
+	srvflags "github.com/point/ethermint/server/flags"
 
-	ethermint "github.com/evmos/ethermint/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	ethermint "github.com/point/ethermint/types"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	cmdcfg "github.com/evmos/evmos/v9/cmd/config"
-	evmoskr "github.com/evmos/evmos/v9/crypto/keyring"
-	"github.com/evmos/evmos/v9/testutil/network"
+	cmdcfg "github.com/point/point/v9/cmd/config"
+	pointkr "github.com/point/point/v9/crypto/keyring"
+	"github.com/point/point/v9/testutil/network"
 )
 
 var (
@@ -212,7 +212,7 @@ func initTestnetFiles(
 	args initArgs,
 ) error {
 	if args.chainID == "" {
-		args.chainID = fmt.Sprintf("evmos_%d-1", tmrand.Int63n(9999999999999)+1)
+		args.chainID = fmt.Sprintf("point_%d-1", tmrand.Int63n(9999999999999)+1)
 	}
 
 	nodeIDs := make([]string, args.numValidators)
@@ -264,7 +264,7 @@ func initTestnetFiles(
 		memo := fmt.Sprintf("%s@%s:26656", nodeIDs[i], ip)
 		genFiles = append(genFiles, nodeConfig.GenesisFile())
 
-		kb, err := keyring.New(sdk.KeyringServiceName(), args.keyringBackend, nodeDir, inBuf, clientCtx.Codec, evmoskr.Option())
+		kb, err := keyring.New(sdk.KeyringServiceName(), args.keyringBackend, nodeDir, inBuf, clientCtx.Codec, pointkr.Option())
 		if err != nil {
 			return err
 		}

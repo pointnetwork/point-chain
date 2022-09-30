@@ -8,7 +8,7 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 
-	evmos "github.com/evmos/evmos/v9/types"
+	point "github.com/point/point/v9/types"
 )
 
 // GetTransferSenderRecipient returns the sender and recipient sdk.AccAddresses
@@ -29,15 +29,15 @@ func GetTransferSenderRecipient(packet channeltypes.Packet) (
 	}
 
 	// validate the sender bech32 address from the counterparty chain
-	// and change the bech32 human readable prefix (HRP) of the sender to `evmos`
-	sender, err = evmos.GetEvmosAddressFromBech32(data.Sender)
+	// and change the bech32 human readable prefix (HRP) of the sender to `point`
+	sender, err = point.GetPointAddressFromBech32(data.Sender)
 	if err != nil {
 		return nil, nil, "", "", sdkerrors.Wrap(err, "invalid sender")
 	}
 
 	// validate the recipient bech32 address from the counterparty chain
-	// and change the bech32 human readable prefix (HRP) of the recipient to `evmos`
-	recipient, err = evmos.GetEvmosAddressFromBech32(data.Receiver)
+	// and change the bech32 human readable prefix (HRP) of the recipient to `point`
+	recipient, err = point.GetPointAddressFromBech32(data.Receiver)
 	if err != nil {
 		return nil, nil, "", "", sdkerrors.Wrap(err, "invalid recipient")
 	}

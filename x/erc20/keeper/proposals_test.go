@@ -9,12 +9,12 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/evmos/ethermint/tests"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	"github.com/point/ethermint/tests"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	"github.com/evmos/evmos/v9/x/erc20/keeper"
-	"github.com/evmos/evmos/v9/x/erc20/types"
-	inflationtypes "github.com/evmos/evmos/v9/x/inflation/types"
+	"github.com/point/point/v9/x/erc20/keeper"
+	"github.com/point/point/v9/x/erc20/types"
+	inflationtypes "github.com/point/point/v9/x/inflation/types"
 )
 
 const (
@@ -199,9 +199,9 @@ func (suite KeeperTestSuite) TestRegisterCoin() {
 			false,
 		},
 		{
-			"evm denom registration - evmos",
+			"evm denom registration - point",
 			func() {
-				metadata.Base = "evmos"
+				metadata.Base = "point"
 				err := suite.app.BankKeeper.MintCoins(suite.ctx, inflationtypes.ModuleName, sdk.Coins{sdk.NewInt64Coin(metadata.Base, 1)})
 				suite.Require().NoError(err)
 			},
@@ -217,9 +217,9 @@ func (suite KeeperTestSuite) TestRegisterCoin() {
 			false,
 		},
 		{
-			"evm denom registration - wevmos",
+			"evm denom registration - wpoint",
 			func() {
-				metadata.Base = "wevmos"
+				metadata.Base = "wpoint"
 				err := suite.app.BankKeeper.MintCoins(suite.ctx, inflationtypes.ModuleName, sdk.Coins{sdk.NewInt64Coin(metadata.Base, 1)})
 				suite.Require().NoError(err)
 			},

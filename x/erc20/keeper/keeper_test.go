@@ -36,20 +36,20 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/encoding"
-	"github.com/evmos/ethermint/server/config"
-	"github.com/evmos/ethermint/tests"
-	ethermint "github.com/evmos/ethermint/types"
-	"github.com/evmos/ethermint/x/evm/statedb"
-	evm "github.com/evmos/ethermint/x/evm/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	"github.com/point/ethermint/encoding"
+	"github.com/point/ethermint/server/config"
+	"github.com/point/ethermint/tests"
+	ethermint "github.com/point/ethermint/types"
+	"github.com/point/ethermint/x/evm/statedb"
+	evm "github.com/point/ethermint/x/evm/types"
+	evmtypes "github.com/point/ethermint/x/evm/types"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 	tmjson "github.com/tendermint/tendermint/libs/json"
 
-	"github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/contracts"
-	"github.com/evmos/evmos/v9/x/erc20/types"
+	"github.com/point/point/v9/app"
+	"github.com/point/point/v9/contracts"
+	"github.com/point/point/v9/x/erc20/types"
 
 	tmtypes "github.com/tendermint/tendermint/types"
 )
@@ -58,7 +58,7 @@ type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx              sdk.Context
-	app              *app.Evmos
+	app              *app.Point
 	queryClientEvm   evm.QueryClient
 	queryClient      types.QueryClient
 	address          common.Address

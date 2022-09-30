@@ -8,10 +8,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/ethermint/x/evm/statedb"
+	"github.com/point/ethermint/tests"
+	"github.com/point/ethermint/x/evm/statedb"
 
-	"github.com/evmos/evmos/v9/x/revenue/types"
+	"github.com/point/point/v9/x/revenue/types"
 )
 
 func (suite *KeeperTestSuite) TestRegisterRevenue() {

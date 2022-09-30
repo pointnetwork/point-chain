@@ -11,9 +11,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"github.com/ethereum/go-ethereum/common"
-	ethermint "github.com/evmos/ethermint/types"
+	ethermint "github.com/point/ethermint/types"
 
-	"github.com/evmos/evmos/v8/x/feesplit/types"
+	"github.com/point/point/v8/x/feesplit/types"
 )
 
 var _ types.QueryServer = Keeper{}
@@ -121,7 +121,7 @@ func (k Keeper) DeployerFeeSplits( // nolint: dupl
 	if err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
-			"invalid format for deployer %s, should be bech32 ('evmos...')", req.DeployerAddress,
+			"invalid format for deployer %s, should be bech32 ('point...')", req.DeployerAddress,
 		)
 	}
 
@@ -167,7 +167,7 @@ func (k Keeper) WithdrawerFeeSplits( // nolint: dupl
 	if err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
-			"invalid format for withdraw addr %s, should be bech32 ('evmos...')", req.WithdrawerAddress,
+			"invalid format for withdraw addr %s, should be bech32 ('point...')", req.WithdrawerAddress,
 		)
 	}
 

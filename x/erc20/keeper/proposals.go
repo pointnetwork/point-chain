@@ -9,7 +9,7 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/evmos/evmos/v9/x/erc20/types"
+	"github.com/point/point/v9/x/erc20/types"
 )
 
 // RegisterCoin deploys an erc20 contract and creates the token pair for the
@@ -104,7 +104,7 @@ func (k Keeper) RegisterERC20(
 }
 
 // CreateCoinMetadata generates the metadata to represent the ERC20 token on
-// evmos.
+// point.
 func (k Keeper) CreateCoinMetadata(
 	ctx sdk.Context,
 	contract common.Address,

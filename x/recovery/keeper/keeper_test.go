@@ -11,15 +11,15 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/evmos/ethermint/tests"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/tests"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v9/app"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
-	"github.com/evmos/evmos/v9/x/recovery/types"
+	"github.com/point/point/v9/app"
+	claimstypes "github.com/point/point/v9/x/claims/types"
+	"github.com/point/point/v9/x/recovery/types"
 )
 
 var (
@@ -33,7 +33,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app         *app.Evmos
+	app         *app.Point
 	queryClient types.QueryClient
 }
 

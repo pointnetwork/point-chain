@@ -6,16 +6,16 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	transfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
-	"github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/testutil"
-	claimtypes "github.com/evmos/evmos/v9/x/claims/types"
-	"github.com/evmos/evmos/v9/x/recovery/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+	"github.com/point/point/v9/app"
+	"github.com/point/point/v9/testutil"
+	claimtypes "github.com/point/point/v9/x/claims/types"
+	"github.com/point/point/v9/x/recovery/types"
 )
 
 var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
-	coinEvmos := sdk.NewCoin("apoint", sdk.NewInt(10000))
+	coinPoint := sdk.NewCoin("apoint", sdk.NewInt(10000))
 	coinOsmo := sdk.NewCoin("uosmo", sdk.NewInt(10))
 	coinAtom := sdk.NewCoin("uatom", sdk.NewInt(10))
 
@@ -34,43 +34,43 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 		BeforeEach(func() {
 			params := claimtypes.DefaultParams()
 			params.AuthorizedChannels = []string{}
-			s.EvmosChain.App.(*app.Evmos).ClaimsKeeper.SetParams(s.EvmosChain.GetContext(), params)
+			s.PointChain.App.(*app.Point).ClaimsKeeper.SetParams(s.PointChain.GetContext(), params)
 
 			sender = s.IBCOsmosisChain.SenderAccount.GetAddress().String()
-			receiver = s.EvmosChain.SenderAccount.GetAddress().String()
+			receiver = s.PointChain.SenderAccount.GetAddress().String()
 			senderAcc = sdk.MustAccAddressFromBech32(sender)
 			receiverAcc = sdk.MustAccAddressFromBech32(receiver)
 		})
 		It("should transfer and not recover tokens", func() {
-			s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 1)
+			s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 1)
 
-			nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-			Expect(nativeEvmos).To(Equal(coinEvmos))
-			ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+			nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+			Expect(nativePoint).To(Equal(coinPoint))
+			ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 			Expect(ibcOsmo).To(Equal(sdk.NewCoin(uosmoIbcdenom, coinOsmo.Amount)))
 		})
 	})
 
 	Describe("from an authorized, non-EVM chain (e.g. Osmosis)", func() {
-		Describe("to a different account on Evmos (sender != recipient)", func() {
+		Describe("to a different account on Point (sender != recipient)", func() {
 			BeforeEach(func() {
 				sender = s.IBCOsmosisChain.SenderAccount.GetAddress().String()
-				receiver = s.EvmosChain.SenderAccount.GetAddress().String()
+				receiver = s.PointChain.SenderAccount.GetAddress().String()
 				senderAcc = sdk.MustAccAddressFromBech32(sender)
 				receiverAcc = sdk.MustAccAddressFromBech32(receiver)
 			})
 
 			It("should transfer and not recover tokens", func() {
-				s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 1)
+				s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 1)
 
-				nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-				Expect(nativeEvmos).To(Equal(coinEvmos))
-				ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+				nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+				Expect(nativePoint).To(Equal(coinPoint))
+				ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 				Expect(ibcOsmo).To(Equal(sdk.NewCoin(uosmoIbcdenom, coinOsmo.Amount)))
 			})
 		})
 
-		Describe("to the sender's own eth_secp256k1 account on Evmos (sender == recipient)", func() {
+		Describe("to the sender's own eth_secp256k1 account on Point (sender == recipient)", func() {
 			BeforeEach(func() {
 				sender = s.IBCOsmosisChain.SenderAccount.GetAddress().String()
 				receiver = s.IBCOsmosisChain.SenderAccount.GetAddress().String()
@@ -82,14 +82,14 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 				BeforeEach(func() {
 					params := types.DefaultParams()
 					params.EnableRecovery = false
-					s.EvmosChain.App.(*app.Evmos).RecoveryKeeper.SetParams(s.EvmosChain.GetContext(), params)
+					s.PointChain.App.(*app.Point).RecoveryKeeper.SetParams(s.PointChain.GetContext(), params)
 				})
 
 				It("should not transfer or recover tokens", func() {
-					s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
-					nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-					Expect(nativeEvmos).To(Equal(coinEvmos))
-					ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+					s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
+					nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+					Expect(nativePoint).To(Equal(coinPoint))
+					ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 					Expect(ibcOsmo).To(Equal(sdk.NewCoin(uosmoIbcdenom, coinOsmo.Amount)))
 				})
 			})
@@ -100,19 +100,19 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 						amt := sdk.NewInt(int64(100))
 						coins := sdk.NewCoins(sdk.NewCoin("apoint", amt))
 						claim = claimtypes.NewClaimsRecord(amt)
-						s.EvmosChain.App.(*app.Evmos).ClaimsKeeper.SetClaimsRecord(s.EvmosChain.GetContext(), senderAcc, claim)
+						s.PointChain.App.(*app.Point).ClaimsKeeper.SetClaimsRecord(s.PointChain.GetContext(), senderAcc, claim)
 
 						// update the escrowed account balance to maintain the invariant
-						err := testutil.FundModuleAccount(s.EvmosChain.App.(*app.Evmos).BankKeeper, s.EvmosChain.GetContext(), claimtypes.ModuleName, coins)
+						err := testutil.FundModuleAccount(s.PointChain.App.(*app.Point).BankKeeper, s.PointChain.GetContext(), claimtypes.ModuleName, coins)
 						s.Require().NoError(err)
 					})
 
 					It("should not transfer or recover tokens", func() {
 						// Prevent further funds from getting stuck
-						s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
-						nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-						Expect(nativeEvmos).To(Equal(coinEvmos))
-						ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
+						nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+						Expect(nativePoint).To(Equal(coinPoint))
+						ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 					})
 				})
@@ -124,38 +124,38 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 						coins := sdk.NewCoins(sdk.NewCoin("apoint", sdk.NewInt(int64(75))))
 						claim = claimtypes.NewClaimsRecord(amt)
 						claim.MarkClaimed(claimtypes.ActionIBCTransfer)
-						s.EvmosChain.App.(*app.Evmos).ClaimsKeeper.SetClaimsRecord(s.EvmosChain.GetContext(), senderAcc, claim)
+						s.PointChain.App.(*app.Point).ClaimsKeeper.SetClaimsRecord(s.PointChain.GetContext(), senderAcc, claim)
 
 						// update the escrowed account balance to maintain the invariant
-						err := testutil.FundModuleAccount(s.EvmosChain.App.(*app.Evmos).BankKeeper, s.EvmosChain.GetContext(), claimtypes.ModuleName, coins)
+						err := testutil.FundModuleAccount(s.PointChain.App.(*app.Point).BankKeeper, s.PointChain.GetContext(), claimtypes.ModuleName, coins)
 						s.Require().NoError(err)
 
 						// apoint & ibc tokens that originated from the sender's chain
-						s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
-						timeout = uint64(s.EvmosChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
+						s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
+						timeout = uint64(s.PointChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
 					})
 
 					It("should transfer tokens to the recipient and perform recovery", func() {
 						// Escrow before relaying packets
-						balanceEscrow := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), transfertypes.GetEscrowAddress("transfer", "channel-0"), "apoint")
-						Expect(balanceEscrow).To(Equal(coinEvmos))
-						ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						balanceEscrow := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), transfertypes.GetEscrowAddress("transfer", "channel-0"), "apoint")
+						Expect(balanceEscrow).To(Equal(coinPoint))
+						ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 
 						// Relay both packets that were sent in the ibc_callback
-						err := s.pathOsmosisEvmos.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
+						err := s.pathOsmosisPoint.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
 						s.Require().NoError(err)
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
 						s.Require().NoError(err)
 
 						// Check that the apoint were recovered
-						nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-						Expect(nativeEvmos.IsZero()).To(BeTrue())
-						ibcEvmos := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
-						Expect(ibcEvmos).To(Equal(sdk.NewCoin(apointIbcdenom, coinEvmos.Amount)))
+						nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+						Expect(nativePoint.IsZero()).To(BeTrue())
+						ibcPoint := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
+						Expect(ibcPoint).To(Equal(sdk.NewCoin(apointIbcdenom, coinPoint.Amount)))
 
 						// Check that the uosmo were recovered
-						ibcOsmo = s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						ibcOsmo = s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 						nativeOsmo := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, "uosmo")
 						Expect(nativeOsmo).To(Equal(coinOsmo))
@@ -163,12 +163,12 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 
 					It("should not claim/migrate/merge claims records", func() {
 						// Relay both packets that were sent in the ibc_callback
-						err := s.pathOsmosisEvmos.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
+						err := s.pathOsmosisPoint.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
 						s.Require().NoError(err)
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
 						s.Require().NoError(err)
 
-						claimAfter, _ := s.EvmosChain.App.(*app.Evmos).ClaimsKeeper.GetClaimsRecord(s.EvmosChain.GetContext(), senderAcc)
+						claimAfter, _ := s.PointChain.App.(*app.Point).ClaimsKeeper.GetClaimsRecord(s.PointChain.GetContext(), senderAcc)
 						Expect(claim).To(Equal(claimAfter))
 					})
 				})
@@ -178,29 +178,29 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 				When("recipient has no ibc vouchers that originated from other chains", func() {
 					It("should transfer and recover tokens", func() {
 						// apoint & ibc tokens that originated from the sender's chain
-						s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
-						timeout = uint64(s.EvmosChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
+						s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, coinOsmo.Denom, coinOsmo.Amount.Int64(), sender, receiver, 1)
+						timeout = uint64(s.PointChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
 
 						// Escrow before relaying packets
-						balanceEscrow := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), transfertypes.GetEscrowAddress("transfer", "channel-0"), "apoint")
-						Expect(balanceEscrow).To(Equal(coinEvmos))
-						ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						balanceEscrow := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), transfertypes.GetEscrowAddress("transfer", "channel-0"), "apoint")
+						Expect(balanceEscrow).To(Equal(coinPoint))
+						ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 
 						// Relay both packets that were sent in the ibc_callback
-						err := s.pathOsmosisEvmos.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
+						err := s.pathOsmosisPoint.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
 						s.Require().NoError(err)
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
 						s.Require().NoError(err)
 
 						// Check that the apoint were recovered
-						nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-						Expect(nativeEvmos.IsZero()).To(BeTrue())
-						ibcEvmos := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
-						Expect(ibcEvmos).To(Equal(sdk.NewCoin(apointIbcdenom, coinEvmos.Amount)))
+						nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+						Expect(nativePoint.IsZero()).To(BeTrue())
+						ibcPoint := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
+						Expect(ibcPoint).To(Equal(sdk.NewCoin(apointIbcdenom, coinPoint.Amount)))
 
 						// Check that the uosmo were recovered
-						ibcOsmo = s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						ibcOsmo = s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 						nativeOsmo := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, "uosmo")
 						Expect(nativeOsmo).To(Equal(coinOsmo))
@@ -212,60 +212,60 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 					BeforeEach(func() {
 						params := types.DefaultParams()
 						params.EnableRecovery = false
-						s.EvmosChain.App.(*app.Evmos).RecoveryKeeper.SetParams(s.EvmosChain.GetContext(), params)
+						s.PointChain.App.(*app.Point).RecoveryKeeper.SetParams(s.PointChain.GetContext(), params)
 
-						// Send uatom from Cosmos to Evmos
-						s.SendAndReceiveMessage(s.pathCosmosEvmos, s.IBCCosmosChain, coinAtom.Denom, coinAtom.Amount.Int64(), s.IBCCosmosChain.SenderAccount.GetAddress().String(), receiver, 1)
+						// Send uatom from Cosmos to Point
+						s.SendAndReceiveMessage(s.pathCosmosPoint, s.IBCCosmosChain, coinAtom.Denom, coinAtom.Amount.Int64(), s.IBCCosmosChain.SenderAccount.GetAddress().String(), receiver, 1)
 
 						params.EnableRecovery = true
-						s.EvmosChain.App.(*app.Evmos).RecoveryKeeper.SetParams(s.EvmosChain.GetContext(), params)
+						s.PointChain.App.(*app.Point).RecoveryKeeper.SetParams(s.PointChain.GetContext(), params)
 					})
 					It("should not recover tokens that originated from other chains", func() {
-						// Send uosmo from Osmosis to Evmos
-						s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 1)
+						// Send uosmo from Osmosis to Point
+						s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 1)
 
 						// Relay both packets that were sent in the ibc_callback
-						timeout := uint64(s.EvmosChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
-						err := s.pathOsmosisEvmos.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
+						timeout := uint64(s.PointChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
+						err := s.pathOsmosisPoint.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
 						s.Require().NoError(err)
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
 						s.Require().NoError(err)
 
 						// apoint was recovered from user address
-						nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-						Expect(nativeEvmos.IsZero()).To(BeTrue())
-						ibcEvmos := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
-						Expect(ibcEvmos).To(Equal(sdk.NewCoin(apointIbcdenom, coinEvmos.Amount)))
+						nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+						Expect(nativePoint.IsZero()).To(BeTrue())
+						ibcPoint := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
+						Expect(ibcPoint).To(Equal(sdk.NewCoin(apointIbcdenom, coinPoint.Amount)))
 
 						// Check that the uosmo were retrieved
-						ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 						nativeOsmo := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, "uosmo")
 						Expect(nativeOsmo).To(Equal(coinOsmo))
 
 						// Check that the atoms were not retrieved
-						ibcAtom := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, uatomIbcdenom)
+						ibcAtom := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, uatomIbcdenom)
 						Expect(ibcAtom).To(Equal(sdk.NewCoin(uatomIbcdenom, coinAtom.Amount)))
 
-						// Repeat transaction from Osmosis to Evmos
-						s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 2)
+						// Repeat transaction from Osmosis to Point
+						s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 2)
 
-						timeout = uint64(s.EvmosChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 3, timeout))
+						timeout = uint64(s.PointChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 3, timeout))
 						s.Require().NoError(err)
 
 						// No further tokens recovered
-						nativeEvmos = s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-						Expect(nativeEvmos.IsZero()).To(BeTrue())
-						ibcEvmos = s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
-						Expect(ibcEvmos).To(Equal(sdk.NewCoin(apointIbcdenom, coinEvmos.Amount)))
+						nativePoint = s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+						Expect(nativePoint.IsZero()).To(BeTrue())
+						ibcPoint = s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
+						Expect(ibcPoint).To(Equal(sdk.NewCoin(apointIbcdenom, coinPoint.Amount)))
 
-						ibcOsmo = s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						ibcOsmo = s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 						nativeOsmo = s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, "uosmo")
 						Expect(nativeOsmo).To(Equal(coinOsmo))
 
-						ibcAtom = s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, uatomIbcdenom)
+						ibcAtom = s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, uatomIbcdenom)
 						Expect(ibcAtom).To(Equal(sdk.NewCoin(uatomIbcdenom, coinAtom.Amount)))
 					})
 				})
@@ -275,53 +275,53 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 					BeforeEach(func() {
 						params := types.DefaultParams()
 						params.EnableRecovery = false
-						s.EvmosChain.App.(*app.Evmos).RecoveryKeeper.SetParams(s.EvmosChain.GetContext(), params)
+						s.PointChain.App.(*app.Point).RecoveryKeeper.SetParams(s.PointChain.GetContext(), params)
 
 						s.SendAndReceiveMessage(s.pathOsmosisCosmos, s.IBCCosmosChain, coinAtom.Denom, coinAtom.Amount.Int64(), s.IBCCosmosChain.SenderAccount.GetAddress().String(), receiver, 1)
 
 						// Send IBC transaction of 10 ibc/uatom
-						transferMsg := transfertypes.NewMsgTransfer(s.pathOsmosisEvmos.EndpointA.ChannelConfig.PortID, s.pathOsmosisEvmos.EndpointA.ChannelID, sdk.NewCoin(uatomIbcdenom, sdk.NewInt(10)), sender, receiver, timeoutHeight, 0)
+						transferMsg := transfertypes.NewMsgTransfer(s.pathOsmosisPoint.EndpointA.ChannelConfig.PortID, s.pathOsmosisPoint.EndpointA.ChannelID, sdk.NewCoin(uatomIbcdenom, sdk.NewInt(10)), sender, receiver, timeoutHeight, 0)
 						_, err := s.IBCOsmosisChain.SendMsgs(transferMsg)
 						s.Require().NoError(err) // message committed
 						transfer := transfertypes.NewFungibleTokenPacketData("transfer/channel-1/uatom", "10", sender, receiver)
-						packet := channeltypes.NewPacket(transfer.GetBytes(), 1, s.pathOsmosisEvmos.EndpointA.ChannelConfig.PortID, s.pathOsmosisEvmos.EndpointA.ChannelID, s.pathOsmosisEvmos.EndpointB.ChannelConfig.PortID, s.pathOsmosisEvmos.EndpointB.ChannelID, timeoutHeight, 0)
-						// Receive message on the evmos side, and send ack
-						err = s.pathOsmosisEvmos.RelayPacket(packet)
+						packet := channeltypes.NewPacket(transfer.GetBytes(), 1, s.pathOsmosisPoint.EndpointA.ChannelConfig.PortID, s.pathOsmosisPoint.EndpointA.ChannelID, s.pathOsmosisPoint.EndpointB.ChannelConfig.PortID, s.pathOsmosisPoint.EndpointB.ChannelID, timeoutHeight, 0)
+						// Receive message on the point side, and send ack
+						err = s.pathOsmosisPoint.RelayPacket(packet)
 						s.Require().NoError(err)
 
 						// Check that the ibc/uatom are available
-						osmoIBCAtom := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uatomOsmoIbcdenom)
+						osmoIBCAtom := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uatomOsmoIbcdenom)
 						s.Require().Equal(osmoIBCAtom.Amount, coinAtom.Amount)
 
 						params.EnableRecovery = true
-						s.EvmosChain.App.(*app.Evmos).RecoveryKeeper.SetParams(s.EvmosChain.GetContext(), params)
+						s.PointChain.App.(*app.Point).RecoveryKeeper.SetParams(s.PointChain.GetContext(), params)
 					})
 					It("should not recover tokens that originated from other chains", func() {
-						s.SendAndReceiveMessage(s.pathOsmosisEvmos, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 2)
+						s.SendAndReceiveMessage(s.pathOsmosisPoint, s.IBCOsmosisChain, "uosmo", 10, sender, receiver, 2)
 
 						// Relay packets that were sent in the ibc_callback
-						timeout := uint64(s.EvmosChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
-						err := s.pathOsmosisEvmos.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
+						timeout := uint64(s.PointChain.GetContext().BlockTime().Add(time.Hour * 4).Add(time.Second * -20).UnixNano())
+						err := s.pathOsmosisPoint.RelayPacket(CreatePacket("10000", "apoint", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 1, timeout))
 						s.Require().NoError(err)
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/transfer/channel-1/uatom", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/transfer/channel-1/uatom", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 2, timeout))
 						s.Require().NoError(err)
-						err = s.pathOsmosisEvmos.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 3, timeout))
+						err = s.pathOsmosisPoint.RelayPacket(CreatePacket("10", "transfer/channel-0/uosmo", sender, receiver, "transfer", "channel-0", "transfer", "channel-0", 3, timeout))
 						s.Require().NoError(err)
 
 						// apoint was recovered from user address
-						nativeEvmos := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), senderAcc, "apoint")
-						Expect(nativeEvmos.IsZero()).To(BeTrue())
-						ibcEvmos := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
-						Expect(ibcEvmos).To(Equal(sdk.NewCoin(apointIbcdenom, coinEvmos.Amount)))
+						nativePoint := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), senderAcc, "apoint")
+						Expect(nativePoint.IsZero()).To(BeTrue())
+						ibcPoint := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, apointIbcdenom)
+						Expect(ibcPoint).To(Equal(sdk.NewCoin(apointIbcdenom, coinPoint.Amount)))
 
 						// Check that the uosmo were recovered
-						ibcOsmo := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uosmoIbcdenom)
+						ibcOsmo := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uosmoIbcdenom)
 						Expect(ibcOsmo.IsZero()).To(BeTrue())
 						nativeOsmo := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), receiverAcc, "uosmo")
 						Expect(nativeOsmo).To(Equal(coinOsmo))
 
 						// Check that the ibc/uatom were retrieved
-						osmoIBCAtom := s.EvmosChain.App.(*app.Evmos).BankKeeper.GetBalance(s.EvmosChain.GetContext(), receiverAcc, uatomOsmoIbcdenom)
+						osmoIBCAtom := s.PointChain.App.(*app.Point).BankKeeper.GetBalance(s.PointChain.GetContext(), receiverAcc, uatomOsmoIbcdenom)
 						Expect(osmoIBCAtom.IsZero()).To(BeTrue())
 						ibcAtom := s.IBCOsmosisChain.GetSimApp().BankKeeper.GetBalance(s.IBCOsmosisChain.GetContext(), senderAcc, uatomIbcdenom)
 						Expect(ibcAtom).To(Equal(sdk.NewCoin(uatomIbcdenom, sdk.NewInt(10))))

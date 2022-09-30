@@ -96,56 +96,56 @@ import (
 	ibckeeper "github.com/cosmos/ibc-go/v5/modules/core/keeper"
 	ibctesting "github.com/cosmos/ibc-go/v5/testing"
 
-	ethermintapp "github.com/evmos/ethermint/app"
-	"github.com/evmos/ethermint/encoding"
-	srvflags "github.com/evmos/ethermint/server/flags"
-	ethermint "github.com/evmos/ethermint/types"
-	"github.com/evmos/ethermint/x/evm"
-	evmkeeper "github.com/evmos/ethermint/x/evm/keeper"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
-	"github.com/evmos/ethermint/x/evm/vm/geth"
-	"github.com/evmos/ethermint/x/feemarket"
-	feemarketkeeper "github.com/evmos/ethermint/x/feemarket/keeper"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	ethermintapp "github.com/point/ethermint/app"
+	"github.com/point/ethermint/encoding"
+	srvflags "github.com/point/ethermint/server/flags"
+	ethermint "github.com/point/ethermint/types"
+	"github.com/point/ethermint/x/evm"
+	evmkeeper "github.com/point/ethermint/x/evm/keeper"
+	evmtypes "github.com/point/ethermint/x/evm/types"
+	"github.com/point/ethermint/x/evm/vm/geth"
+	"github.com/point/ethermint/x/feemarket"
+	feemarketkeeper "github.com/point/ethermint/x/feemarket/keeper"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
 	// unnamed import of statik for swagger UI support
-	_ "github.com/evmos/evmos/v9/client/docs/statik"
+	_ "github.com/point/point/v9/client/docs/statik"
 
-	"github.com/evmos/evmos/v9/app/ante"
-	v2 "github.com/evmos/evmos/v9/app/upgrades/v2"
-	v4 "github.com/evmos/evmos/v9/app/upgrades/v4"
-	v5 "github.com/evmos/evmos/v9/app/upgrades/v5"
-	v6 "github.com/evmos/evmos/v9/app/upgrades/v6"
-	v7 "github.com/evmos/evmos/v9/app/upgrades/v7"
-	v8 "github.com/evmos/evmos/v9/app/upgrades/v8"
-	v81 "github.com/evmos/evmos/v9/app/upgrades/v8_1"
-	v82 "github.com/evmos/evmos/v9/app/upgrades/v8_2"
-	"github.com/evmos/evmos/v9/x/claims"
-	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
-	"github.com/evmos/evmos/v9/x/epochs"
-	epochskeeper "github.com/evmos/evmos/v9/x/epochs/keeper"
-	epochstypes "github.com/evmos/evmos/v9/x/epochs/types"
-	"github.com/evmos/evmos/v9/x/erc20"
-	erc20client "github.com/evmos/evmos/v9/x/erc20/client"
-	erc20keeper "github.com/evmos/evmos/v9/x/erc20/keeper"
-	erc20types "github.com/evmos/evmos/v9/x/erc20/types"
-	"github.com/evmos/evmos/v9/x/incentives"
-	incentivesclient "github.com/evmos/evmos/v9/x/incentives/client"
-	incentiveskeeper "github.com/evmos/evmos/v9/x/incentives/keeper"
-	incentivestypes "github.com/evmos/evmos/v9/x/incentives/types"
-	"github.com/evmos/evmos/v9/x/inflation"
-	inflationkeeper "github.com/evmos/evmos/v9/x/inflation/keeper"
-	inflationtypes "github.com/evmos/evmos/v9/x/inflation/types"
-	"github.com/evmos/evmos/v9/x/recovery"
-	recoverykeeper "github.com/evmos/evmos/v9/x/recovery/keeper"
-	recoverytypes "github.com/evmos/evmos/v9/x/recovery/types"
-	"github.com/evmos/evmos/v9/x/revenue"
-	revenuekeeper "github.com/evmos/evmos/v9/x/revenue/keeper"
-	revenuetypes "github.com/evmos/evmos/v9/x/revenue/types"
-	"github.com/evmos/evmos/v9/x/vesting"
-	vestingkeeper "github.com/evmos/evmos/v9/x/vesting/keeper"
-	vestingtypes "github.com/evmos/evmos/v9/x/vesting/types"
+	"github.com/point/point/v9/app/ante"
+	v2 "github.com/point/point/v9/app/upgrades/v2"
+	v4 "github.com/point/point/v9/app/upgrades/v4"
+	v5 "github.com/point/point/v9/app/upgrades/v5"
+	v6 "github.com/point/point/v9/app/upgrades/v6"
+	v7 "github.com/point/point/v9/app/upgrades/v7"
+	v8 "github.com/point/point/v9/app/upgrades/v8"
+	v81 "github.com/point/point/v9/app/upgrades/v8_1"
+	v82 "github.com/point/point/v9/app/upgrades/v8_2"
+	"github.com/point/point/v9/x/claims"
+	claimskeeper "github.com/point/point/v9/x/claims/keeper"
+	claimstypes "github.com/point/point/v9/x/claims/types"
+	"github.com/point/point/v9/x/epochs"
+	epochskeeper "github.com/point/point/v9/x/epochs/keeper"
+	epochstypes "github.com/point/point/v9/x/epochs/types"
+	"github.com/point/point/v9/x/erc20"
+	erc20client "github.com/point/point/v9/x/erc20/client"
+	erc20keeper "github.com/point/point/v9/x/erc20/keeper"
+	erc20types "github.com/point/point/v9/x/erc20/types"
+	"github.com/point/point/v9/x/incentives"
+	incentivesclient "github.com/point/point/v9/x/incentives/client"
+	incentiveskeeper "github.com/point/point/v9/x/incentives/keeper"
+	incentivestypes "github.com/point/point/v9/x/incentives/types"
+	"github.com/point/point/v9/x/inflation"
+	inflationkeeper "github.com/point/point/v9/x/inflation/keeper"
+	inflationtypes "github.com/point/point/v9/x/inflation/types"
+	"github.com/point/point/v9/x/recovery"
+	recoverykeeper "github.com/point/point/v9/x/recovery/keeper"
+	recoverytypes "github.com/point/point/v9/x/recovery/types"
+	"github.com/point/point/v9/x/revenue"
+	revenuekeeper "github.com/point/point/v9/x/revenue/keeper"
+	revenuetypes "github.com/point/point/v9/x/revenue/types"
+	"github.com/point/point/v9/x/vesting"
+	vestingkeeper "github.com/point/point/v9/x/vesting/keeper"
+	vestingtypes "github.com/point/point/v9/x/vesting/types"
 )
 
 func init() {
@@ -156,7 +156,7 @@ func init() {
 
 	DefaultNodeHome = filepath.Join(userHomeDir, ".pointd")
 
-	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
+	// manually update the power reduction by replacing micro (u) -> atto (a) point
 	sdk.DefaultPowerReduction = ethermint.PowerReduction
 	// modify fee market parameter defaults through global
 	feemarkettypes.DefaultMinGasPrice = v5.MainnetMinGasPrices
@@ -184,7 +184,7 @@ var (
 			[]govclient.ProposalHandler{
 				paramsclient.ProposalHandler, distrclient.ProposalHandler, upgradeclient.LegacyProposalHandler, upgradeclient.LegacyCancelProposalHandler,
 				ibcclientclient.UpdateClientProposalHandler, ibcclientclient.UpgradeProposalHandler,
-				// Evmos proposal types
+				// Point proposal types
 				erc20client.RegisterCoinProposalHandler, erc20client.RegisterERC20ProposalHandler, erc20client.ToggleTokenConversionProposalHandler,
 				incentivesclient.RegisterIncentiveProposalHandler, incentivesclient.CancelIncentiveProposalHandler,
 			},
@@ -233,15 +233,15 @@ var (
 )
 
 var (
-	_ servertypes.Application = (*Evmos)(nil)
-	_ simapp.App              = (*Evmos)(nil)
-	_ ibctesting.TestingApp   = (*Evmos)(nil)
+	_ servertypes.Application = (*Point)(nil)
+	_ simapp.App              = (*Point)(nil)
+	_ ibctesting.TestingApp   = (*Point)(nil)
 )
 
-// Evmos implements an extended ABCI application. It is an application
+// Point implements an extended ABCI application. It is an application
 // that may process transactions through Ethereum's EVM running atop of
 // Tendermint consensus.
-type Evmos struct {
+type Point struct {
 	*baseapp.BaseApp
 
 	// encoding
@@ -281,7 +281,7 @@ type Evmos struct {
 	EvmKeeper       *evmkeeper.Keeper
 	FeeMarketKeeper feemarketkeeper.Keeper
 
-	// Evmos keepers
+	// Point keepers
 	InflationKeeper  inflationkeeper.Keeper
 	ClaimsKeeper     *claimskeeper.Keeper
 	Erc20Keeper      erc20keeper.Keeper
@@ -303,8 +303,8 @@ type Evmos struct {
 	tpsCounter *tpsCounter
 }
 
-// NewEvmos returns a reference to a new initialized Ethermint application.
-func NewEvmos(
+// NewPoint returns a reference to a new initialized Ethermint application.
+func NewPoint(
 	logger log.Logger,
 	db dbm.DB,
 	traceStore io.Writer,
@@ -315,7 +315,7 @@ func NewEvmos(
 	encodingConfig simappparams.EncodingConfig,
 	appOpts servertypes.AppOptions,
 	baseAppOptions ...func(*baseapp.BaseApp),
-) *Evmos {
+) *Point {
 	appCodec := encodingConfig.Codec
 	cdc := encodingConfig.Amino
 	interfaceRegistry := encodingConfig.InterfaceRegistry
@@ -343,7 +343,7 @@ func NewEvmos(
 		ibchost.StoreKey, ibctransfertypes.StoreKey,
 		// ethermint keys
 		evmtypes.StoreKey, feemarkettypes.StoreKey,
-		// evmos keys
+		// point keys
 		inflationtypes.StoreKey, erc20types.StoreKey, incentivestypes.StoreKey,
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 		revenuetypes.StoreKey,
@@ -353,7 +353,7 @@ func NewEvmos(
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey, evmtypes.TransientKey, feemarkettypes.TransientKey)
 	memKeys := sdk.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
 
-	app := &Evmos{
+	app := &Point{
 		BaseApp:           bApp,
 		cdc:               cdc,
 		appCodec:          appCodec,
@@ -442,7 +442,7 @@ func NewEvmos(
 		&stakingKeeper, govRouter, app.MsgServiceRouter(), govConfig,
 	)
 
-	// Evmos Keeper
+	// Point Keeper
 	app.InflationKeeper = inflationkeeper.NewKeeper(
 		keys[inflationtypes.StoreKey], appCodec, app.GetSubspace(inflationtypes.ModuleName),
 		app.AccountKeeper, app.BankKeeper, app.DistrKeeper, &stakingKeeper,
@@ -599,7 +599,7 @@ func NewEvmos(
 		// Ethermint app modules
 		evm.NewAppModule(app.EvmKeeper, app.AccountKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
-		// Evmos app modules
+		// Point app modules
 		inflation.NewAppModule(app.InflationKeeper, app.AccountKeeper, app.StakingKeeper),
 		erc20.NewAppModule(app.Erc20Keeper, app.AccountKeeper),
 		incentives.NewAppModule(app.IncentivesKeeper, app.AccountKeeper),
@@ -671,7 +671,7 @@ func NewEvmos(
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
-		// Evmos modules
+		// Point modules
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
@@ -710,7 +710,7 @@ func NewEvmos(
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
-		// Evmos modules
+		// Point modules
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
@@ -810,24 +810,24 @@ func NewEvmos(
 }
 
 // Name returns the name of the App
-func (app *Evmos) Name() string { return app.BaseApp.Name() }
+func (app *Point) Name() string { return app.BaseApp.Name() }
 
 // BeginBlocker runs the Tendermint ABCI BeginBlock logic. It executes state changes at the beginning
 // of the new block for every registered module. If there is a registered fork at the current height,
 // BeginBlocker will schedule the upgrade plan and perform the state migration (if any).
-func (app *Evmos) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
+func (app *Point) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
 	// Perform any scheduled forks before executing the modules logic
 	app.ScheduleForkUpgrade(ctx)
 	return app.mm.BeginBlock(ctx, req)
 }
 
 // EndBlocker updates every end block
-func (app *Evmos) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
+func (app *Point) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
 	return app.mm.EndBlock(ctx, req)
 }
 
 // We are intentionally decomposing the DeliverTx method so as to calculate the transactions per second.
-func (app *Evmos) DeliverTx(req abci.RequestDeliverTx) (res abci.ResponseDeliverTx) {
+func (app *Point) DeliverTx(req abci.RequestDeliverTx) (res abci.ResponseDeliverTx) {
 	defer func() {
 		// TODO: Record the count along with the code and or reason so as to display
 		// in the transactions per second live dashboards.
@@ -841,7 +841,7 @@ func (app *Evmos) DeliverTx(req abci.RequestDeliverTx) (res abci.ResponseDeliver
 }
 
 // InitChainer updates at chain initialization
-func (app *Evmos) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
+func (app *Point) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
 	var genesisState simapp.GenesisState
 	if err := json.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(err)
@@ -853,12 +853,12 @@ func (app *Evmos) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.R
 }
 
 // LoadHeight loads state at a particular height
-func (app *Evmos) LoadHeight(height int64) error {
+func (app *Point) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
 // ModuleAccountAddrs returns all the app's module account addresses.
-func (app *Evmos) ModuleAccountAddrs() map[string]bool {
+func (app *Point) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 
 	accs := make([]string, 0, len(maccPerms))
@@ -876,7 +876,7 @@ func (app *Evmos) ModuleAccountAddrs() map[string]bool {
 
 // BlockedAddrs returns all the app's module account addresses that are not
 // allowed to receive external tokens.
-func (app *Evmos) BlockedAddrs() map[string]bool {
+func (app *Point) BlockedAddrs() map[string]bool {
 	blockedAddrs := make(map[string]bool)
 
 	accs := make([]string, 0, len(maccPerms))
@@ -892,64 +892,64 @@ func (app *Evmos) BlockedAddrs() map[string]bool {
 	return blockedAddrs
 }
 
-// LegacyAmino returns Evmos's amino codec.
+// LegacyAmino returns Point's amino codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *Evmos) LegacyAmino() *codec.LegacyAmino {
+func (app *Point) LegacyAmino() *codec.LegacyAmino {
 	return app.cdc
 }
 
-// AppCodec returns Evmos's app codec.
+// AppCodec returns Point's app codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *Evmos) AppCodec() codec.Codec {
+func (app *Point) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
-// InterfaceRegistry returns Evmos's InterfaceRegistry
-func (app *Evmos) InterfaceRegistry() types.InterfaceRegistry {
+// InterfaceRegistry returns Point's InterfaceRegistry
+func (app *Point) InterfaceRegistry() types.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // GetKey returns the KVStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *Evmos) GetKey(storeKey string) *storetypes.KVStoreKey {
+func (app *Point) GetKey(storeKey string) *storetypes.KVStoreKey {
 	return app.keys[storeKey]
 }
 
 // GetTKey returns the TransientStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *Evmos) GetTKey(storeKey string) *storetypes.TransientStoreKey {
+func (app *Point) GetTKey(storeKey string) *storetypes.TransientStoreKey {
 	return app.tkeys[storeKey]
 }
 
 // GetMemKey returns the MemStoreKey for the provided mem key.
 //
 // NOTE: This is solely used for testing purposes.
-func (app *Evmos) GetMemKey(storeKey string) *storetypes.MemoryStoreKey {
+func (app *Point) GetMemKey(storeKey string) *storetypes.MemoryStoreKey {
 	return app.memKeys[storeKey]
 }
 
 // GetSubspace returns a param subspace for a given module name.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *Evmos) GetSubspace(moduleName string) paramstypes.Subspace {
+func (app *Point) GetSubspace(moduleName string) paramstypes.Subspace {
 	subspace, _ := app.ParamsKeeper.GetSubspace(moduleName)
 	return subspace
 }
 
 // SimulationManager implements the SimulationApp interface
-func (app *Evmos) SimulationManager() *module.SimulationManager {
+func (app *Point) SimulationManager() *module.SimulationManager {
 	return app.sm
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 // API server.
-func (app *Evmos) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
+func (app *Point) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 
 	// Register new tx routes from grpc-gateway.
@@ -966,12 +966,12 @@ func (app *Evmos) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConf
 	}
 }
 
-func (app *Evmos) RegisterTxService(clientCtx client.Context) {
+func (app *Point) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 }
 
 // RegisterTendermintService implements the Application.RegisterTendermintService method.
-func (app *Evmos) RegisterTendermintService(clientCtx client.Context) {
+func (app *Point) RegisterTendermintService(clientCtx client.Context) {
 	tmservice.RegisterTendermintService(
 		clientCtx,
 		app.BaseApp.GRPCQueryRouter(),
@@ -983,32 +983,32 @@ func (app *Evmos) RegisterTendermintService(clientCtx client.Context) {
 // IBC Go TestingApp functions
 
 // GetBaseApp implements the TestingApp interface.
-func (app *Evmos) GetBaseApp() *baseapp.BaseApp {
+func (app *Point) GetBaseApp() *baseapp.BaseApp {
 	return app.BaseApp
 }
 
 // GetStakingKeeper implements the TestingApp interface.
-func (app *Evmos) GetStakingKeeper() ibctestingtypes.StakingKeeper {
+func (app *Point) GetStakingKeeper() ibctestingtypes.StakingKeeper {
 	return app.StakingKeeper
 }
 
 // GetStakingKeeper implements the TestingApp interface.
-func (app *Evmos) GetStakingKeeperSDK() stakingkeeper.Keeper {
+func (app *Point) GetStakingKeeperSDK() stakingkeeper.Keeper {
 	return app.StakingKeeper
 }
 
 // GetIBCKeeper implements the TestingApp interface.
-func (app *Evmos) GetIBCKeeper() *ibckeeper.Keeper {
+func (app *Point) GetIBCKeeper() *ibckeeper.Keeper {
 	return app.IBCKeeper
 }
 
 // GetScopedIBCKeeper implements the TestingApp interface.
-func (app *Evmos) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
+func (app *Point) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
 	return app.ScopedIBCKeeper
 }
 
 // GetTxConfig implements the TestingApp interface.
-func (app *Evmos) GetTxConfig() client.TxConfig {
+func (app *Point) GetTxConfig() client.TxConfig {
 	cfg := encoding.MakeConfig(ModuleBasics)
 	return cfg.TxConfig
 }
@@ -1053,7 +1053,7 @@ func initParamsKeeper(
 	// ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName)
 	paramsKeeper.Subspace(feemarkettypes.ModuleName)
-	// evmos subspaces
+	// point subspaces
 	paramsKeeper.Subspace(inflationtypes.ModuleName)
 	paramsKeeper.Subspace(erc20types.ModuleName)
 	paramsKeeper.Subspace(claimstypes.ModuleName)
@@ -1063,7 +1063,7 @@ func initParamsKeeper(
 	return paramsKeeper
 }
 
-func (app *Evmos) setupUpgradeHandlers() {
+func (app *Point) setupUpgradeHandlers() {
 	// v2 upgrade handler
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v2.UpgradeName,

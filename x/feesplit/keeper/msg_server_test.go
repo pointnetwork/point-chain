@@ -8,10 +8,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/ethermint/x/evm/statedb"
+	"github.com/point/ethermint/tests"
+	"github.com/point/ethermint/x/evm/statedb"
 
-	"github.com/evmos/evmos/v8/x/feesplit/types"
+	"github.com/point/point/v8/x/feesplit/types"
 )
 
 func (suite *KeeperTestSuite) TestRegisterFeeSplit() {

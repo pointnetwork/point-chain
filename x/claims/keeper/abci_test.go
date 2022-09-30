@@ -7,11 +7,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
-	"github.com/evmos/ethermint/tests"
+	"github.com/point/ethermint/tests"
 
-	"github.com/evmos/evmos/v9/testutil"
-	"github.com/evmos/evmos/v9/x/claims/types"
-	vestingtypes "github.com/evmos/evmos/v9/x/vesting/types"
+	"github.com/point/point/v9/testutil"
+	"github.com/point/point/v9/x/claims/types"
+	vestingtypes "github.com/point/point/v9/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

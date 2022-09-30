@@ -1,10 +1,10 @@
 syntax = "proto3";
-package evmos.revenue.v1;
+package point.revenue.v1;
 
-import "evmos/revenue/v1/revenue.proto";
+import "point/revenue/v1/revenue.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/evmos/v9/x/revenue/types";
+option go_package = "github.com/pointnetwork/point-chain/v9/x/revenue/types";
 
 // GenesisState defines the module's genesis state.
 message GenesisState {

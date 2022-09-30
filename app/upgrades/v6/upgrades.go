@@ -11,12 +11,12 @@ import (
 
 	ibctransferkeeper "github.com/cosmos/ibc-go/v5/modules/apps/transfer/keeper"
 
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	evmtypes "github.com/point/ethermint/x/evm/types"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	v5 "github.com/evmos/evmos/v9/app/upgrades/v5"
-	"github.com/evmos/evmos/v9/types"
-	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
+	v5 "github.com/point/point/v9/app/upgrades/v5"
+	"github.com/point/point/v9/types"
+	claimskeeper "github.com/point/point/v9/x/claims/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v6

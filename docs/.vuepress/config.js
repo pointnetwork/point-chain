@@ -91,7 +91,7 @@ module.exports = {
       cosmos_explorer_url: "https://cosmos.pointnetwork.io/point",
     },
     logo: {
-      src: "/evmos-black.svg",
+      src: "/point-black.svg",
     },
     algolia: {
       id: process.env.ALGOLIA_ID || '',
@@ -113,11 +113,11 @@ module.exports = {
               path: "/about/intro",
             },
             // {
-            //   title: "Evmos Ecosystem",
-            //   path: "https://evmos.space/",
+            //   title: "Point Ecosystem",
+            //   path: "https://point.space/",
             // },
             // {
-            //   title: "Awesome Evmos",
+            //   title: "Awesome Point",
             //   path: "https://github.com/tharsis/awesome",
             // },
           ],
@@ -241,7 +241,7 @@ module.exports = {
       },
     },
     footer: {
-      logo: "/evmos-black.svg",
+      logo: "/point-black.svg",
       textLink: {
         text: "Point Chain",
         url: "https://pointnetwork.io/",

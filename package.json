@@ -1,5 +1,5 @@
 {
-  "name": "evmos",
+  "name": "point",
   "version": "1.0.0",
   "description": "<!-- parent:   order: false -->",
   "main": "index.js",
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evmos/evmos.git"
+    "url": "git+https://github.com/pointnetwork/point-chain.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/evmos/evmos/issues"
+    "url": "https://github.com/pointnetwork/point-chain/issues"
   },
-  "homepage": "https://github.com/evmos/evmos#readme"
+  "homepage": "https://github.com/pointnetwork/point-chain#readme"
 }

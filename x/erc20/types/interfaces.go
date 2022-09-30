@@ -10,8 +10,8 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/vm"
 
-	"github.com/evmos/ethermint/x/evm/statedb"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	"github.com/point/ethermint/x/evm/statedb"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

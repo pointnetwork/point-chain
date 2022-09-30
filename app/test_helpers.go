@@ -20,13 +20,13 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
+	claimstypes "github.com/point/point/v9/x/claims/types"
 
-	"github.com/evmos/ethermint/encoding"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/encoding"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v9/cmd/config"
-	"github.com/evmos/evmos/v9/types"
+	"github.com/point/point/v9/cmd/config"
+	"github.com/point/point/v9/types"
 )
 
 func init() {
@@ -39,7 +39,7 @@ func init() {
 var DefaultTestingAppInit func() (ibctesting.TestingApp, map[string]json.RawMessage) = SetupTestingApp
 
 // DefaultConsensusParams defines the default Tendermint consensus params used in
-// Evmos testing.
+// Point testing.
 var DefaultConsensusParams = &abci.ConsensusParams{
 	Block: &abci.BlockParams{
 		MaxBytes: 200000,
@@ -64,11 +64,11 @@ func init() {
 	config.SetBip44CoinType(cfg)
 }
 
-// Setup initializes a new Evmos. A Nop logger is set in Evmos.
+// Setup initializes a new Point. A Nop logger is set in Point.
 func Setup(
 	isCheckTx bool,
 	feemarketGenesis *feemarkettypes.GenesisState,
-) *Evmos {
+) *Point {
 	privVal := mock.NewPV()
 	pubKey, _ := privVal.GetPubKey()
 
@@ -85,7 +85,7 @@ func Setup(
 	}
 
 	db := dbm.NewMemDB()
-	app := NewEvmos(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 5, encoding.MakeConfig(ModuleBasics), simapp.EmptyAppOptions{})
+	app := NewPoint(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 5, encoding.MakeConfig(ModuleBasics), simapp.EmptyAppOptions{})
 	if !isCheckTx {
 		// init chain must be called to stop deliverState from being nil
 		genesisState := NewDefaultGenesisState()
@@ -119,7 +119,7 @@ func Setup(
 	return app
 }
 
-func GenesisStateWithValSet(app *Evmos, genesisState simapp.GenesisState,
+func GenesisStateWithValSet(app *Point, genesisState simapp.GenesisState,
 	valSet *tmtypes.ValidatorSet, genAccs []authtypes.GenesisAccount,
 	balances ...banktypes.Balance,
 ) simapp.GenesisState {
@@ -186,6 +186,6 @@ func GenesisStateWithValSet(app *Evmos, genesisState simapp.GenesisState,
 func SetupTestingApp() (ibctesting.TestingApp, map[string]json.RawMessage) {
 	db := dbm.NewMemDB()
 	cfg := encoding.MakeConfig(ModuleBasics)
-	app := NewEvmos(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 5, cfg, simapp.EmptyAppOptions{})
+	app := NewPoint(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 5, cfg, simapp.EmptyAppOptions{})
 	return app, NewDefaultGenesisState()
 }

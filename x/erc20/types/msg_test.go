@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/ethermint/tests"
+	"github.com/point/ethermint/tests"
 
 	"github.com/ethereum/go-ethereum/common"
 )
@@ -94,7 +94,7 @@ func (suite *MsgsTestSuite) TestMsgConvertCoin() {
 			"msg convert coin - invalid sender",
 			sdk.NewCoin("coin", sdk.NewInt(100)),
 			tests.GenerateAddress().String(),
-			"evmosinvalid",
+			"pointinvalid",
 			false,
 		},
 		{

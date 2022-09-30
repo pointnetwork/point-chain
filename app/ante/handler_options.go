@@ -12,13 +12,13 @@ import (
 	ibcante "github.com/cosmos/ibc-go/v5/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v5/modules/core/keeper"
 
-	ethante "github.com/evmos/ethermint/app/ante"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	ethante "github.com/point/ethermint/app/ante"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	vestingtypes "github.com/evmos/evmos/v9/x/vesting/types"
+	vestingtypes "github.com/point/point/v9/x/vesting/types"
 )
 
-// HandlerOptions defines the list of module keepers required to run the Evmos
+// HandlerOptions defines the list of module keepers required to run the Point
 // AnteHandler decorators.
 type HandlerOptions struct {
 	AccountKeeper          evmtypes.AccountKeeper

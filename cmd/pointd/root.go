@@ -30,21 +30,21 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	ethermintclient "github.com/evmos/ethermint/client"
-	"github.com/evmos/ethermint/client/debug"
-	"github.com/evmos/ethermint/encoding"
-	ethermintserver "github.com/evmos/ethermint/server"
-	servercfg "github.com/evmos/ethermint/server/config"
-	srvflags "github.com/evmos/ethermint/server/flags"
+	ethermintclient "github.com/point/ethermint/client"
+	"github.com/point/ethermint/client/debug"
+	"github.com/point/ethermint/encoding"
+	ethermintserver "github.com/point/ethermint/server"
+	servercfg "github.com/point/ethermint/server/config"
+	srvflags "github.com/point/ethermint/server/flags"
 	tmcfg "github.com/tendermint/tendermint/config"
 
-	"github.com/evmos/evmos/v9/app"
-	cmdcfg "github.com/evmos/evmos/v9/cmd/config"
-	evmoskr "github.com/evmos/evmos/v9/crypto/keyring"
+	"github.com/point/point/v9/app"
+	cmdcfg "github.com/point/point/v9/cmd/config"
+	pointkr "github.com/point/point/v9/crypto/keyring"
 )
 
 const (
-	EnvPrefix = "EVMOS"
+	EnvPrefix = "POINT"
 )
 
 // NewRootCmd creates a new root command for pointd. It is called once in the
@@ -60,12 +60,12 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithBroadcastMode(flags.BroadcastBlock).
 		WithHomeDir(app.DefaultNodeHome).
-		WithKeyringOptions(evmoskr.Option()).
+		WithKeyringOptions(pointkr.Option()).
 		WithViper(EnvPrefix)
 
 	rootCmd := &cobra.Command{
 		Use:   app.Name,
-		Short: "Evmos Daemon",
+		Short: "Point Daemon",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())
@@ -230,7 +230,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		panic(err)
 	}
 
-	evmosApp := app.NewEvmos(
+	pointApp := app.NewPoint(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(sdkserver.FlagInvCheckPeriod)),
@@ -246,7 +246,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		baseapp.SetIndexEvents(cast.ToStringSlice(appOpts.Get(sdkserver.FlagIndexEvents))),
 	)
 
-	return evmosApp
+	return pointApp
 }
 
 // appExport creates a new simapp (optionally at a given height)
@@ -255,23 +255,23 @@ func (a appCreator) appExport(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, height int64, forZeroHeight bool, jailAllowedAddrs []string,
 	appOpts servertypes.AppOptions,
 ) (servertypes.ExportedApp, error) {
-	var evmosApp *app.Evmos
+	var pointApp *app.Point
 	homePath, ok := appOpts.Get(flags.FlagHome).(string)
 	if !ok || homePath == "" {
 		return servertypes.ExportedApp{}, errors.New("application home not set")
 	}
 
 	if height != -1 {
-		evmosApp = app.NewEvmos(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		pointApp = app.NewPoint(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 
-		if err := evmosApp.LoadHeight(height); err != nil {
+		if err := pointApp.LoadHeight(height); err != nil {
 			return servertypes.ExportedApp{}, err
 		}
 	} else {
-		evmosApp = app.NewEvmos(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		pointApp = app.NewPoint(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 	}
 
-	return evmosApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
+	return pointApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
 }
 
 // initTendermintConfig helps to override default Tendermint Config values.

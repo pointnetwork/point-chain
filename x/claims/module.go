@@ -17,9 +17,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/evmos/evmos/v9/x/claims/client/cli"
-	"github.com/evmos/evmos/v9/x/claims/keeper"
-	"github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/x/claims/client/cli"
+	"github.com/point/point/v9/x/claims/keeper"
+	"github.com/point/point/v9/x/claims/types"
 )
 
 var (

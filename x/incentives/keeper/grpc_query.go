@@ -13,9 +13,9 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"github.com/ethereum/go-ethereum/common"
-	ethermint "github.com/evmos/ethermint/types"
+	ethermint "github.com/point/ethermint/types"
 
-	"github.com/evmos/evmos/v9/x/incentives/types"
+	"github.com/point/point/v9/x/incentives/types"
 )
 
 var _ types.QueryServer = Keeper{}

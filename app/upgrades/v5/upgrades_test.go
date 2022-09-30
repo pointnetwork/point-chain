@@ -15,24 +15,24 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/tests"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	"github.com/point/ethermint/tests"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
 	ibctransfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 
-	"github.com/evmos/evmos/v9/app"
-	v5 "github.com/evmos/evmos/v9/app/upgrades/v5"
-	evmostypes "github.com/evmos/evmos/v9/types"
-	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/app"
+	v5 "github.com/point/point/v9/app/upgrades/v5"
+	pointtypes "github.com/point/point/v9/types"
+	claimskeeper "github.com/point/point/v9/x/claims/keeper"
+	claimstypes "github.com/point/point/v9/x/claims/types"
 )
 
 type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *app.Evmos
+	app         *app.Point
 	consAddress sdk.ConsAddress
 }
 
@@ -121,7 +121,7 @@ func (suite *UpgradeTestSuite) TestResolveAirdrop() {
 
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
-			suite.SetupTest(evmostypes.TestnetChainID + "-2") // reset
+			suite.SetupTest(pointtypes.TestnetChainID + "-2") // reset
 
 			addr := addClaimRecord(suite.ctx, suite.app.ClaimsKeeper, tc.original)
 
@@ -169,7 +169,7 @@ func (suite *UpgradeTestSuite) TestMigrateClaim() {
 	}
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
-			suite.SetupTest(evmostypes.TestnetChainID + "-2") // reset
+			suite.SetupTest(pointtypes.TestnetChainID + "-2") // reset
 
 			tc.malleate()
 
@@ -230,7 +230,7 @@ func (suite *UpgradeTestSuite) TestUpdateConsensusParams() {
 
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
-			suite.SetupTest(evmostypes.TestnetChainID + "-2") // reset
+			suite.SetupTest(pointtypes.TestnetChainID + "-2") // reset
 
 			tc.malleate()
 
@@ -356,7 +356,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {
-			suite.SetupTest(evmostypes.TestnetChainID + "-2") // reset
+			suite.SetupTest(pointtypes.TestnetChainID + "-2") // reset
 
 			for _, dt := range tc.originalTraces {
 				suite.app.TransferKeeper.SetDenomTrace(suite.ctx, dt)

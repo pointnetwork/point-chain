@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/evmos/ethermint/server/config"
-	"github.com/evmos/ethermint/testutil/network"
+	"github.com/point/ethermint/server/config"
+	"github.com/point/ethermint/testutil/network"
 
-	evmosnetwork "github.com/evmos/evmos/v9/testutil/network"
+	pointnetwork "github.com/point/point/v9/testutil/network"
 )
 
 type IntegrationTestSuite struct {
@@ -27,7 +27,7 @@ func (s *IntegrationTestSuite) SetupSuite() {
 	s.T().Log("setting up integration test suite")
 
 	var err error
-	cfg := evmosnetwork.DefaultConfig()
+	cfg := pointnetwork.DefaultConfig()
 	cfg.JSONRPCAddress = config.DefaultJSONRPCAddress
 	cfg.NumValidators = 1
 

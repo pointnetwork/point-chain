@@ -20,13 +20,13 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 
-	ethermint "github.com/evmos/ethermint/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	ethermint "github.com/point/ethermint/types"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	evmoskr "github.com/evmos/evmos/v9/crypto/keyring"
+	pointkr "github.com/point/point/v9/crypto/keyring"
 
-	vestingcli "github.com/evmos/evmos/v9/x/vesting/client/cli"
-	vestingtypes "github.com/evmos/evmos/v9/x/vesting/types"
+	vestingcli "github.com/point/point/v9/x/vesting/client/cli"
+	vestingtypes "github.com/point/point/v9/x/vesting/types"
 )
 
 const (
@@ -66,7 +66,7 @@ contain valid denominations. Accounts may optionally be supplied with vesting pa
 						clientCtx.HomeDir,
 						inBuf,
 						clientCtx.Codec,
-						evmoskr.Option(),
+						pointkr.Option(),
 					)
 					if err != nil {
 						return err

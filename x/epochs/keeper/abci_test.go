@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/evmos/evmos/v9/x/epochs"
-	"github.com/evmos/evmos/v9/x/epochs/types"
+	"github.com/point/point/v9/x/epochs"
+	"github.com/point/point/v9/x/epochs/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochInfoChangesBeginBlockerAndInitGenesis() {

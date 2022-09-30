@@ -12,13 +12,13 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/tests"
-	ethermint "github.com/evmos/ethermint/types"
-	"github.com/evmos/evmos/v9/testutil"
-	inflationtypes "github.com/evmos/evmos/v9/x/inflation/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	"github.com/point/ethermint/tests"
+	ethermint "github.com/point/ethermint/types"
+	"github.com/point/point/v9/testutil"
+	inflationtypes "github.com/point/point/v9/x/inflation/types"
 
-	"github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {
@@ -1047,7 +1047,7 @@ func (suite *KeeperTestSuite) TestClawbackEmptyAccountsAirdrop() {
 	}{
 		{
 			name:           "address active",
-			address:        "evmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
+			address:        "point1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
 			sequence:       1,
 			expectClawback: false,
 			claimsRecord: types.ClaimsRecord{
@@ -1057,7 +1057,7 @@ func (suite *KeeperTestSuite) TestClawbackEmptyAccountsAirdrop() {
 		},
 		{
 			name:           "address inactive",
-			address:        "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			address:        "point1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 			sequence:       0,
 			expectClawback: true,
 			claimsRecord: types.ClaimsRecord{

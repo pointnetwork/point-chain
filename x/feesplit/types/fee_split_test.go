@@ -7,7 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/evmos/ethermint/tests"
+	"github.com/point/ethermint/tests"
 )
 
 type FeeSplitTestSuite struct {
@@ -121,7 +121,7 @@ func (suite *FeeSplitTestSuite) TestFee() {
 			"Create fee split- invalid deployer address",
 			FeeSplit{
 				tests.GenerateAddress().String(),
-				"evmos14mq5c8yn9jx295ahaxye2f0xw3tlell0lt542Z",
+				"point14mq5c8yn9jx295ahaxye2f0xw3tlell0lt542Z",
 				suite.address2.String(),
 			},
 			false,
@@ -131,7 +131,7 @@ func (suite *FeeSplitTestSuite) TestFee() {
 			FeeSplit{
 				tests.GenerateAddress().String(),
 				suite.address1.String(),
-				"evmos14mq5c8yn9jx295ahaxye2f0xw3tlell0lt542Z",
+				"point14mq5c8yn9jx295ahaxye2f0xw3tlell0lt542Z",
 			},
 			false,
 		},

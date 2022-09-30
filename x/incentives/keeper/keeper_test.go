@@ -29,17 +29,17 @@ import (
 	"github.com/tendermint/tendermint/version"
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/encoding"
-	"github.com/evmos/ethermint/server/config"
-	"github.com/evmos/ethermint/tests"
-	ethermint "github.com/evmos/ethermint/types"
-	evm "github.com/evmos/ethermint/x/evm/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	"github.com/point/ethermint/encoding"
+	"github.com/point/ethermint/server/config"
+	"github.com/point/ethermint/tests"
+	ethermint "github.com/point/ethermint/types"
+	evm "github.com/point/ethermint/x/evm/types"
 
-	"github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/contracts"
-	epochstypes "github.com/evmos/evmos/v9/x/epochs/types"
-	"github.com/evmos/evmos/v9/x/incentives/types"
+	"github.com/point/point/v9/app"
+	"github.com/point/point/v9/contracts"
+	epochstypes "github.com/point/point/v9/x/epochs/types"
+	"github.com/point/point/v9/x/incentives/types"
 )
 
 var (
@@ -72,7 +72,7 @@ type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx              sdk.Context
-	app              *app.Evmos
+	app              *app.Point
 	queryClientEvm   evm.QueryClient
 	queryClient      types.QueryClient
 	address          common.Address

@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 	"github.com/stretchr/testify/require"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	simapp "github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/x/epochs"
-	"github.com/evmos/evmos/v9/x/epochs/types"
+	simapp "github.com/point/point/v9/app"
+	"github.com/point/point/v9/x/epochs"
+	"github.com/point/point/v9/x/epochs/types"
 )
 
 func TestEpochsExportGenesis(t *testing.T) {

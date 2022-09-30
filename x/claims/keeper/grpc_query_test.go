@@ -6,9 +6,9 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v9/testutil"
-	"github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/ethermint/tests"
+	"github.com/point/point/v9/testutil"
+	"github.com/point/point/v9/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestTotalUnclaimed() {
@@ -149,7 +149,7 @@ func (suite *KeeperTestSuite) TestClaimsRecord() {
 			"invalid address",
 			func() {
 				req = &types.QueryClaimsRecordRequest{
-					Address: "evmos1",
+					Address: "point1",
 				}
 			},
 			true,

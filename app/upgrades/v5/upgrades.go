@@ -18,13 +18,13 @@ import (
 	ibctransferkeeper "github.com/cosmos/ibc-go/v5/modules/apps/transfer/keeper"
 	ibctransfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 
-	feemarketv010types "github.com/evmos/ethermint/x/feemarket/migrations/v010/types"
-	feemarketv011 "github.com/evmos/ethermint/x/feemarket/migrations/v011"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	feemarketv010types "github.com/point/ethermint/x/feemarket/migrations/v010/types"
+	feemarketv011 "github.com/point/ethermint/x/feemarket/migrations/v011"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v9/types"
-	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/point/point/v9/types"
+	claimskeeper "github.com/point/point/v9/x/claims/keeper"
+	claimstypes "github.com/point/point/v9/x/claims/types"
 )
 
 // TestnetDenomMetadata defines the metadata for the uPOINT denom on testnet
@@ -186,7 +186,7 @@ func swapUnclaimedAction(cr claimstypes.ClaimsRecord, unclaimed, claimed claimst
 
 // MigrateContributorClaim migrates the claims record of a specific early
 // contributor (Blockchain at Berkeley) from one address to another.
-// See https://medium.com/evmos/the-evmos-rektdrop-abbe931ba823 for details about
+// See https://medium.com/point/the-point-rektdrop-abbe931ba823 for details about
 // Early Contributors.
 func MigrateContributorClaim(ctx sdk.Context, k *claimskeeper.Keeper) {
 	from := sdk.MustAccAddressFromBech32(ContributorAddrFrom)

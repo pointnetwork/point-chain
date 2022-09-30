@@ -5,7 +5,7 @@ func EnableObservability() error {
 	// if true {
 	// Temporarily disabling this until we can configure out port reuse
 	// fast enough or enabling observability through the config.
-	// Please see https://github.com/evmos/evmos/v9/issues/84
+	// Please see https://github.com/pointnetwork/point-chain/v9/issues/84
 	// return nil
 	// }
 
@@ -25,7 +25,7 @@ func EnableObservability() error {
 	// mux := http.NewServeMux()
 	// mux.Handle("/metrics", pe)
 
-	// // TODO: Derive the Prometheus observability exporter from the Evmos config.
+	// // TODO: Derive the Prometheus observability exporter from the Point config.
 	// addr := ":8877"
 	// go func() {
 	// 	println("Serving the Prometheus observability exporter at", addr)

@@ -14,19 +14,19 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/crypto/ethsecp256k1"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v9/app"
-	v6 "github.com/evmos/evmos/v9/app/upgrades/v6"
-	evmostypes "github.com/evmos/evmos/v9/types"
+	"github.com/point/point/v9/app"
+	v6 "github.com/point/point/v9/app/upgrades/v6"
+	pointtypes "github.com/point/point/v9/types"
 )
 
 type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *app.Evmos
+	app         *app.Point
 	consAddress sdk.ConsAddress
 }
 
@@ -83,7 +83,7 @@ func (suite *UpgradeTestSuite) TestUpdateSlashingParams() {
 	}{
 		{
 			"success",
-			evmostypes.MainnetChainID + "-2",
+			pointtypes.MainnetChainID + "-2",
 			func() {
 				params := suite.app.SlashingKeeper.GetParams(suite.ctx)
 				params.SignedBlocksWindow = 30000

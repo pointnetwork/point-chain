@@ -4,13 +4,13 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/evmos/ethermint/tests"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	"github.com/point/ethermint/tests"
+	evmtypes "github.com/point/ethermint/x/evm/types"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/evmos/evmos/v9/contracts"
-	"github.com/evmos/evmos/v9/x/erc20/keeper"
-	"github.com/evmos/evmos/v9/x/erc20/types"
+	"github.com/point/point/v9/contracts"
+	"github.com/point/point/v9/x/erc20/keeper"
+	"github.com/point/point/v9/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryERC20() {

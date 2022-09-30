@@ -12,12 +12,12 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/evmos/ethermint/tests"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/point/ethermint/tests"
+	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/x/recovery"
-	"github.com/evmos/evmos/v9/x/recovery/types"
+	"github.com/point/point/v9/app"
+	"github.com/point/point/v9/x/recovery"
+	"github.com/point/point/v9/x/recovery/types"
 )
 
 type GenesisTestSuite struct {
@@ -25,7 +25,7 @@ type GenesisTestSuite struct {
 
 	ctx sdk.Context
 
-	app     *app.Evmos
+	app     *app.Point
 	genesis types.GenesisState
 }
 
