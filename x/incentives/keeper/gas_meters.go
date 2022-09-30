@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/point/point/v9/x/incentives/types"
+	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
 )
 
 // GetIncentivesGasMeters - get all registered GasMeters per Incentive

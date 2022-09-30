@@ -14,9 +14,9 @@ import (
 	evmtypes "github.com/point/ethermint/x/evm/types"
 	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	v5 "github.com/point/point/v9/app/upgrades/v5"
-	"github.com/point/point/v9/types"
-	claimskeeper "github.com/point/point/v9/x/claims/keeper"
+	v5 "github.com/pointnetwork/point-chain/v9/app/upgrades/v5"
+	"github.com/pointnetwork/point-chain/v9/types"
+	claimskeeper "github.com/pointnetwork/point-chain/v9/x/claims/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v6

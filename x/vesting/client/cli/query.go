@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	"github.com/point/point/v9/x/vesting/types"
+	"github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 // GetQueryCmd returns the parent command for all vesting CLI query commands.

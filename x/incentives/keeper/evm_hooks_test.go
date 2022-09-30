@@ -14,9 +14,9 @@ import (
 	ethermint "github.com/point/ethermint/types"
 	evm "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/testutil"
-	"github.com/point/point/v9/x/incentives/types"
-	vestingtypes "github.com/point/point/v9/x/vesting/types"
+	"github.com/pointnetwork/point-chain/v9/testutil"
+	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
+	vestingtypes "github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the

@@ -15,9 +15,9 @@ import (
 	"github.com/point/ethermint/encoding"
 	ethermint "github.com/point/ethermint/types"
 
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/testutil"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/testutil"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 	abci "github.com/tendermint/tendermint/abci/types"

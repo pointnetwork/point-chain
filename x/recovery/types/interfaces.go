@@ -10,7 +10,7 @@ import (
 	clienttypes "github.com/cosmos/ibc-go/v5/modules/core/02-client/types"
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 
-	claimstypes "github.com/point/point/v9/x/claims/types"
+	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 // BankKeeper defines the banking keeper that must be fulfilled when

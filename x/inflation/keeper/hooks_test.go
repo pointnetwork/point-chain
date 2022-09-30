@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	epochstypes "github.com/point/point/v9/x/epochs/types"
-	"github.com/point/point/v9/x/inflation/types"
+	epochstypes "github.com/pointnetwork/point-chain/v9/x/epochs/types"
+	"github.com/pointnetwork/point-chain/v9/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochIdentifierAfterEpochEnd() {

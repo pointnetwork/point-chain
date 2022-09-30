@@ -7,9 +7,9 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	"github.com/point/point/v9/types"
-	claimskeeper "github.com/point/point/v9/x/claims/keeper"
-	inflationkeeper "github.com/point/point/v9/x/inflation/keeper"
+	"github.com/pointnetwork/point-chain/v9/types"
+	claimskeeper "github.com/pointnetwork/point-chain/v9/x/claims/keeper"
+	inflationkeeper "github.com/pointnetwork/point-chain/v9/x/inflation/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v7

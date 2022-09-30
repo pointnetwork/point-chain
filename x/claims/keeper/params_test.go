@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestParams() {

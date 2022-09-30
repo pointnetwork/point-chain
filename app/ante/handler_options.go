@@ -15,7 +15,7 @@ import (
 	ethante "github.com/point/ethermint/app/ante"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	vestingtypes "github.com/point/point/v9/x/vesting/types"
+	vestingtypes "github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 // HandlerOptions defines the list of module keepers required to run the Point

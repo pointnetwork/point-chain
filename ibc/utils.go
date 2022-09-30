@@ -8,7 +8,7 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 
-	point "github.com/point/point/v9/types"
+	point "github.com/pointnetwork/point-chain/v9/types"
 )
 
 // GetTransferSenderRecipient returns the sender and recipient sdk.AccAddresses

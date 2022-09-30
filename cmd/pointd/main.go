@@ -7,8 +7,8 @@ import (
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/point/point/v9/app"
-	cmdcfg "github.com/point/point/v9/cmd/config"
+	"github.com/pointnetwork/point-chain/v9/app"
+	cmdcfg "github.com/pointnetwork/point-chain/v9/cmd/config"
 )
 
 func main() {

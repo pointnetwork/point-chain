@@ -8,9 +8,9 @@ import (
 	evmtypes "github.com/point/ethermint/x/evm/types"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/point/point/v9/contracts"
-	"github.com/point/point/v9/x/erc20/keeper"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryERC20() {

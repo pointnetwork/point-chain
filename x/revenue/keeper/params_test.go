@@ -1,6 +1,6 @@
 package keeper_test
 
-import "github.com/point/point/v9/x/revenue/types"
+import "github.com/pointnetwork/point-chain/v9/x/revenue/types"
 
 func (suite *KeeperTestSuite) TestParams() {
 	params := suite.app.RevenueKeeper.GetParams(suite.ctx)

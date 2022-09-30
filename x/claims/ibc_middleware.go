@@ -7,8 +7,8 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v5/modules/core/05-port/types"
 	"github.com/cosmos/ibc-go/v5/modules/core/exported"
 
-	"github.com/point/point/v9/ibc"
-	"github.com/point/point/v9/x/claims/keeper"
+	"github.com/pointnetwork/point-chain/v9/ibc"
+	"github.com/pointnetwork/point-chain/v9/x/claims/keeper"
 )
 
 var _ porttypes.Middleware = &IBCMiddleware{}

@@ -11,7 +11,7 @@ import (
 
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/x/revenue/types"
+	"github.com/pointnetwork/point-chain/v9/x/revenue/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

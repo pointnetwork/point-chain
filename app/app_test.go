@@ -20,8 +20,8 @@ import (
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/point/ethermint/encoding"
-	"github.com/point/point/v9/types"
-	claimstypes "github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/types"
+	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 func TestPointExport(t *testing.T) {

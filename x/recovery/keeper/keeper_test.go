@@ -17,9 +17,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/point/point/v9/app"
-	claimstypes "github.com/point/point/v9/x/claims/types"
-	"github.com/point/point/v9/x/recovery/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/x/recovery/types"
 )
 
 var (

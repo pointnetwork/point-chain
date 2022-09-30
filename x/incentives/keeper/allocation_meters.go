@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/point/point/v9/x/incentives/types"
+	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
 )
 
 // GetAllAllocationMeters - get all registered AllocationMeters

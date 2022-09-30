@@ -16,8 +16,8 @@ import (
 	"github.com/point/ethermint/server/config"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/contracts"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 // DeployERC20Contract creates and deploys an ERC20 contract on the EVM with the

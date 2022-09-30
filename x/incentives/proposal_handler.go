@@ -10,8 +10,8 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/point/point/v9/x/incentives/keeper"
-	"github.com/point/point/v9/x/incentives/types"
+	"github.com/pointnetwork/point-chain/v9/x/incentives/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
 )
 
 // NewIncentivesProposalHandler creates a governance handler to manage new

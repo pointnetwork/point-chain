@@ -14,7 +14,7 @@ import (
 	"github.com/point/ethermint/server/config"
 	"github.com/point/ethermint/testutil/network"
 
-	pointnetwork "github.com/point/point/v9/testutil/network"
+	pointnetwork "github.com/pointnetwork/point-chain/v9/testutil/network"
 )
 
 type IntegrationTestSuite struct {

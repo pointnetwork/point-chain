@@ -8,7 +8,7 @@ import (
 	ibcclientkeeper "github.com/cosmos/ibc-go/v5/modules/core/02-client/keeper"
 	ibcclienttypes "github.com/cosmos/ibc-go/v5/modules/core/02-client/types"
 
-	"github.com/point/point/v9/types"
+	"github.com/pointnetwork/point-chain/v9/types"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v4

@@ -5,9 +5,9 @@ import (
 
 	ethermint "github.com/point/ethermint/types"
 
-	point "github.com/point/point/v9/types"
-	incentivestypes "github.com/point/point/v9/x/incentives/types"
-	"github.com/point/point/v9/x/inflation/types"
+	point "github.com/pointnetwork/point-chain/v9/types"
+	incentivestypes "github.com/pointnetwork/point-chain/v9/x/incentives/types"
+	"github.com/pointnetwork/point-chain/v9/x/inflation/types"
 )
 
 // 200M token at year 4 allocated to the team

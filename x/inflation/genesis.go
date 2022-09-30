@@ -2,8 +2,8 @@ package inflation
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/point/point/v9/x/inflation/keeper"
-	"github.com/point/point/v9/x/inflation/types"
+	"github.com/pointnetwork/point-chain/v9/x/inflation/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/inflation/types"
 )
 
 // InitGenesis import module genesis

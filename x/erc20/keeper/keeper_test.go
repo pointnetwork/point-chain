@@ -47,9 +47,9 @@ import (
 	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 	tmjson "github.com/tendermint/tendermint/libs/json"
 
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/contracts"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 
 	tmtypes "github.com/tendermint/tendermint/types"
 )

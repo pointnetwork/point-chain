@@ -6,11 +6,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	v2 "github.com/point/point/v9/app/upgrades/v2"
-	v4 "github.com/point/point/v9/app/upgrades/v4"
-	v7 "github.com/point/point/v9/app/upgrades/v7"
-	v82 "github.com/point/point/v9/app/upgrades/v8_2"
-	"github.com/point/point/v9/types"
+	v2 "github.com/pointnetwork/point-chain/v9/app/upgrades/v2"
+	v4 "github.com/pointnetwork/point-chain/v9/app/upgrades/v4"
+	v7 "github.com/pointnetwork/point-chain/v9/app/upgrades/v7"
+	v82 "github.com/pointnetwork/point-chain/v9/app/upgrades/v8_2"
+	"github.com/pointnetwork/point-chain/v9/types"
 )
 
 // ScheduleForkUpgrade executes any necessary fork logic for based upon the current

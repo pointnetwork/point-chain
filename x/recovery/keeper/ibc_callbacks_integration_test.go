@@ -8,10 +8,10 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/testutil"
-	claimtypes "github.com/point/point/v9/x/claims/types"
-	"github.com/point/point/v9/x/recovery/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/testutil"
+	claimtypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/x/recovery/types"
 )
 
 var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {

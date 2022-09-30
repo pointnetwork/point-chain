@@ -15,7 +15,7 @@ import (
 	ethermint "github.com/point/ethermint/types"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/x/incentives/types"
+	"github.com/pointnetwork/point-chain/v9/x/incentives/types"
 )
 
 var _ = Describe("Performing EVM transactions", Ordered, func() {

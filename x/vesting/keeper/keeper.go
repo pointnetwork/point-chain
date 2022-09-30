@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/point/point/v9/x/vesting/types"
+	"github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 // Keeper of this module maintains collections of vesting.

@@ -11,7 +11,7 @@ import (
 	"github.com/point/ethermint/tests"
 	"github.com/point/ethermint/x/evm/statedb"
 
-	"github.com/point/point/v9/x/revenue/types"
+	"github.com/pointnetwork/point-chain/v9/x/revenue/types"
 )
 
 func (suite *KeeperTestSuite) TestRegisterRevenue() {

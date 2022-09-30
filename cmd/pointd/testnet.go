@@ -44,9 +44,9 @@ import (
 	ethermint "github.com/point/ethermint/types"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	cmdcfg "github.com/point/point/v9/cmd/config"
-	pointkr "github.com/point/point/v9/crypto/keyring"
-	"github.com/point/point/v9/testutil/network"
+	cmdcfg "github.com/pointnetwork/point-chain/v9/cmd/config"
+	pointkr "github.com/pointnetwork/point-chain/v9/crypto/keyring"
+	"github.com/pointnetwork/point-chain/v9/testutil/network"
 )
 
 var (

@@ -17,7 +17,7 @@ import (
 
 	ethermint "github.com/point/ethermint/types"
 
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 // NewTxCmd returns a root CLI command handler for erc20 transaction commands

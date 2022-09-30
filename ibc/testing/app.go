@@ -20,7 +20,7 @@ import (
 	ibcgotesting "github.com/cosmos/ibc-go/v5/testing"
 
 	ethermint "github.com/point/ethermint/types"
-	pointapp "github.com/point/point/v9/app"
+	pointapp "github.com/pointnetwork/point-chain/v9/app"
 )
 
 var DefaultTestingAppInit func() (ibcgotesting.TestingApp, map[string]json.RawMessage) = pointapp.SetupTestingApp

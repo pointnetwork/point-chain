@@ -35,10 +35,10 @@ import (
 	ethermint "github.com/point/ethermint/types"
 	evm "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/contracts"
-	epochstypes "github.com/point/point/v9/x/epochs/types"
-	"github.com/point/point/v9/x/vesting/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	epochstypes "github.com/pointnetwork/point-chain/v9/x/epochs/types"
+	"github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 var (

@@ -9,8 +9,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	"github.com/point/point/v9/app"
-	pointd "github.com/point/point/v9/cmd/pointd"
+	"github.com/pointnetwork/point-chain/v9/app"
+	pointd "github.com/pointnetwork/point-chain/v9/cmd/pointd"
 )
 
 func TestInitCmd(t *testing.T) {

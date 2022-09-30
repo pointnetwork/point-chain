@@ -18,9 +18,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/point/point/v9/x/erc20/client/cli"
-	"github.com/point/point/v9/x/erc20/keeper"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/client/cli"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 // type check to ensure the interface is properly implemented

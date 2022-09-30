@@ -23,10 +23,10 @@ import (
 	ethermint "github.com/point/ethermint/types"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	pointkr "github.com/point/point/v9/crypto/keyring"
+	pointkr "github.com/pointnetwork/point-chain/v9/crypto/keyring"
 
-	vestingcli "github.com/point/point/v9/x/vesting/client/cli"
-	vestingtypes "github.com/point/point/v9/x/vesting/types"
+	vestingcli "github.com/pointnetwork/point-chain/v9/x/vesting/client/cli"
+	vestingtypes "github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 const (

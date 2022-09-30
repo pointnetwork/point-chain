@@ -11,8 +11,8 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/contracts"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

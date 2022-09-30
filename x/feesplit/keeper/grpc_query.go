@@ -13,7 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethermint "github.com/point/ethermint/types"
 
-	"github.com/point/point/v8/x/feesplit/types"
+	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
 )
 
 var _ types.QueryServer = Keeper{}

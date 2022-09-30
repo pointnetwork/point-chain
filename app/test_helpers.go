@@ -20,13 +20,13 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	claimstypes "github.com/point/point/v9/x/claims/types"
+	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
 
 	"github.com/point/ethermint/encoding"
 	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/point/point/v9/cmd/config"
-	"github.com/point/point/v9/types"
+	"github.com/pointnetwork/point-chain/v9/cmd/config"
+	"github.com/pointnetwork/point-chain/v9/types"
 )
 
 func init() {

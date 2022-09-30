@@ -12,9 +12,9 @@ import (
 	"github.com/point/ethermint/tests"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	"github.com/point/point/v9/x/erc20/keeper"
-	"github.com/point/point/v9/x/erc20/types"
-	inflationtypes "github.com/point/point/v9/x/inflation/types"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
+	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
 )
 
 const (

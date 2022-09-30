@@ -13,7 +13,7 @@ import (
 
 	ethermint "github.com/point/ethermint/types"
 
-	"github.com/point/point/v9/x/revenue/types"
+	"github.com/pointnetwork/point-chain/v9/x/revenue/types"
 )
 
 // NewTxCmd returns a root CLI command handler for certain modules/revenue

@@ -3,7 +3,7 @@ package types
 import (
 	"testing"
 
-	epochstypes "github.com/point/point/v9/x/epochs/types"
+	epochstypes "github.com/pointnetwork/point-chain/v9/x/epochs/types"
 	"github.com/stretchr/testify/suite"
 )
 

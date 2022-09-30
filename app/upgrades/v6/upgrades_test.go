@@ -17,9 +17,9 @@ import (
 	"github.com/point/ethermint/crypto/ethsecp256k1"
 	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/point/point/v9/app"
-	v6 "github.com/point/point/v9/app/upgrades/v6"
-	pointtypes "github.com/point/point/v9/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	v6 "github.com/pointnetwork/point-chain/v9/app/upgrades/v6"
+	pointtypes "github.com/pointnetwork/point-chain/v9/types"
 )
 
 type UpgradeTestSuite struct {

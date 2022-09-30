@@ -8,9 +8,9 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 	"github.com/cosmos/ibc-go/v5/modules/core/exported"
 
-	"github.com/point/point/v9/ibc"
-	point "github.com/point/point/v9/types"
-	"github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/ibc"
+	point "github.com/pointnetwork/point-chain/v9/types"
+	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 // OnAcknowledgementPacket performs an IBC send callback. Once a user submits an

@@ -15,9 +15,9 @@ import (
 	"github.com/point/ethermint/tests"
 	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/x/revenue"
-	"github.com/point/point/v9/x/revenue/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/x/revenue"
+	"github.com/pointnetwork/point-chain/v9/x/revenue/types"
 )
 
 type GenesisTestSuite struct {

@@ -27,7 +27,7 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	inflationtypes "github.com/point/point/v9/x/inflation/types"
+	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
 
 	"github.com/point/ethermint/server"
 	evmtypes "github.com/point/ethermint/x/evm/types"

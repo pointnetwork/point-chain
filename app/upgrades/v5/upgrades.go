@@ -22,9 +22,9 @@ import (
 	feemarketv011 "github.com/point/ethermint/x/feemarket/migrations/v011"
 	feemarkettypes "github.com/point/ethermint/x/feemarket/types"
 
-	"github.com/point/point/v9/types"
-	claimskeeper "github.com/point/point/v9/x/claims/keeper"
-	claimstypes "github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/types"
+	claimskeeper "github.com/pointnetwork/point-chain/v9/x/claims/keeper"
+	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 // TestnetDenomMetadata defines the metadata for the uPOINT denom on testnet

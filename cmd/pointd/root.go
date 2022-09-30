@@ -38,9 +38,9 @@ import (
 	srvflags "github.com/point/ethermint/server/flags"
 	tmcfg "github.com/tendermint/tendermint/config"
 
-	"github.com/point/point/v9/app"
-	cmdcfg "github.com/point/point/v9/cmd/config"
-	pointkr "github.com/point/point/v9/crypto/keyring"
+	"github.com/pointnetwork/point-chain/v9/app"
+	cmdcfg "github.com/pointnetwork/point-chain/v9/cmd/config"
+	pointkr "github.com/pointnetwork/point-chain/v9/crypto/keyring"
 )
 
 const (

@@ -18,9 +18,9 @@ import (
 	"github.com/point/ethermint/encoding"
 	"github.com/point/ethermint/tests"
 	evmtypes "github.com/point/ethermint/x/evm/types"
-	"github.com/point/point/v8/app"
-	"github.com/point/point/v8/testutil"
-	"github.com/point/point/v8/x/feesplit/types"
+	"github.com/pointnetwork/point-chain/v8/app"
+	"github.com/pointnetwork/point-chain/v8/testutil"
+	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
 
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 

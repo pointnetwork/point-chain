@@ -11,8 +11,8 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/point/point/v9/contracts"
-	"github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	"github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 var _ types.MsgServer = &Keeper{}

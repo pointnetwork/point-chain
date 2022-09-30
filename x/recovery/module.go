@@ -19,9 +19,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/point/point/v9/x/recovery/client/cli"
-	"github.com/point/point/v9/x/recovery/keeper"
-	"github.com/point/point/v9/x/recovery/types"
+	"github.com/pointnetwork/point-chain/v9/x/recovery/client/cli"
+	"github.com/pointnetwork/point-chain/v9/x/recovery/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/recovery/types"
 )
 
 // type check to ensure the interface is properly implemented

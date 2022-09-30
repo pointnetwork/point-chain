@@ -12,9 +12,9 @@ import (
 
 	"github.com/point/ethermint/encoding"
 
-	"github.com/point/point/v9/app"
-	v2 "github.com/point/point/v9/x/erc20/migrations/v2"
-	erc20types "github.com/point/point/v9/x/erc20/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	v2 "github.com/pointnetwork/point-chain/v9/x/erc20/migrations/v2"
+	erc20types "github.com/pointnetwork/point-chain/v9/x/erc20/types"
 )
 
 func TestUpdateParams(t *testing.T) {

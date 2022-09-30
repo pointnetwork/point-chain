@@ -7,8 +7,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/point/point/v9/x/claims/keeper"
-	"github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/x/claims/keeper"
+	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 // NewHandler returns claim module messages

@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/query"
 
 	"github.com/point/ethermint/tests"
-	"github.com/point/point/v8/x/feesplit/types"
+	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
 )
 
 func (suite *KeeperTestSuite) TestFeeSplits() {

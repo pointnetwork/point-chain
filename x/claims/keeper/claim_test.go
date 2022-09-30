@@ -15,10 +15,10 @@ import (
 	"github.com/point/ethermint/crypto/ethsecp256k1"
 	"github.com/point/ethermint/tests"
 	ethermint "github.com/point/ethermint/types"
-	"github.com/point/point/v9/testutil"
-	inflationtypes "github.com/point/point/v9/x/inflation/types"
+	"github.com/pointnetwork/point-chain/v9/testutil"
+	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
 
-	"github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {

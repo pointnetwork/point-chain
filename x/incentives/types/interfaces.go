@@ -14,7 +14,7 @@ import (
 	"github.com/point/ethermint/x/evm/statedb"
 	evmtypes "github.com/point/ethermint/x/evm/types"
 
-	inflationtypes "github.com/point/point/v9/x/inflation/types"
+	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

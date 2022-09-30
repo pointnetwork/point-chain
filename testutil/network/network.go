@@ -49,7 +49,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/point/ethermint/crypto/hd"
-	"github.com/point/point/v9/app"
+	"github.com/pointnetwork/point-chain/v9/app"
 
 	"github.com/point/ethermint/encoding"
 	"github.com/point/ethermint/server/config"

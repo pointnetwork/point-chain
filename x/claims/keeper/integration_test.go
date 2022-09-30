@@ -25,16 +25,16 @@ import (
 	"github.com/point/ethermint/encoding"
 	"github.com/point/ethermint/tests"
 	evmtypes "github.com/point/ethermint/x/evm/types"
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/testutil"
-	incentivestypes "github.com/point/point/v9/x/incentives/types"
-	inflationtypes "github.com/point/point/v9/x/inflation/types"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/testutil"
+	incentivestypes "github.com/pointnetwork/point-chain/v9/x/incentives/types"
+	inflationtypes "github.com/pointnetwork/point-chain/v9/x/inflation/types"
 
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 	"github.com/point/ethermint/server/config"
 	evm "github.com/point/ethermint/x/evm/types"
-	"github.com/point/point/v9/contracts"
-	"github.com/point/point/v9/x/claims/types"
+	"github.com/pointnetwork/point-chain/v9/contracts"
+	"github.com/pointnetwork/point-chain/v9/x/claims/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 

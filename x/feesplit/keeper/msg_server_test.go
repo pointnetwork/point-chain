@@ -11,7 +11,7 @@ import (
 	"github.com/point/ethermint/tests"
 	"github.com/point/ethermint/x/evm/statedb"
 
-	"github.com/point/point/v8/x/feesplit/types"
+	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
 )
 
 func (suite *KeeperTestSuite) TestRegisterFeeSplit() {

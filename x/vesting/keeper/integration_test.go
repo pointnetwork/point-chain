@@ -10,9 +10,9 @@ import (
 
 	"github.com/point/ethermint/encoding"
 	"github.com/point/ethermint/tests"
-	"github.com/point/point/v9/app"
-	"github.com/point/point/v9/app/ante"
-	"github.com/point/point/v9/testutil"
+	"github.com/pointnetwork/point-chain/v9/app"
+	"github.com/pointnetwork/point-chain/v9/app/ante"
+	"github.com/pointnetwork/point-chain/v9/testutil"
 
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
@@ -22,9 +22,9 @@ import (
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	evmtypes "github.com/point/ethermint/x/evm/types"
-	claimstypes "github.com/point/point/v9/x/claims/types"
+	claimstypes "github.com/pointnetwork/point-chain/v9/x/claims/types"
 
-	"github.com/point/point/v9/x/vesting/types"
+	"github.com/pointnetwork/point-chain/v9/x/vesting/types"
 )
 
 // Clawback vesting with Cliff and Lock. In this case the cliff is reached
