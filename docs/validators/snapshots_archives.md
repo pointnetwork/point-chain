@@ -9,7 +9,7 @@ Quickly sync your node with Evmos using a snapshot or serve queries for prev ver
 ## List of Snapshots and Archives
 
 Below is a list of publicly available snapshots that you can use to sync with the Evmos mainnet and
-archived [9001-1 mainnet](https://github.com/tharsis/mainnet/tree/main/evmos_9001-1):
+archived [9001-1 mainnet](https://github.com/tharsis/mainnet/tree/main/point_10687-1):
 
 <!-- markdown-link-check-disable -->
 :::: tabs
@@ -26,9 +26,9 @@ archived [9001-1 mainnet](https://github.com/tharsis/mainnet/tree/main/evmos_900
 
 | Name           | URL                                                                             |
 | ---------------|---------------------------------------------------------------------------------|
-| `Nodes Guru`   | [snapshots.nodes.guru/evmos_9001-1](https://snapshots.nodes.guru/evmos_9001-1/)                                    |
+| `Nodes Guru`   | [snapshots.nodes.guru/point_10687-1](https://snapshots.nodes.guru/point_10687-1/)                                    |
 | `Polkachu`     | [polkachu.com/tendermint_snapshots/evmos](https://www.polkachu.com/tendermint_snapshots/evmos)                           |
-| `Forbole`      | [bigdipper.live/evmos_9001-1](https://s3.bigdipper.live.eu-central-1.linodeobjects.com/evmos_9001-1.tar.lz4) |
+| `Forbole`      | [bigdipper.live/point_10687-1](https://s3.bigdipper.live.eu-central-1.linodeobjects.com/point_10687-1.tar.lz4) |
 :::
 ::::
 
