@@ -17,9 +17,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v8/app"
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
-	"github.com/evmos/evmos/v8/x/recovery/types"
+	"github.com/evmos/evmos/v9/app"
+	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
+	"github.com/evmos/evmos/v9/x/recovery/types"
 )
 
 var (
@@ -44,7 +44,7 @@ func (suite *KeeperTestSuite) SetupTest() {
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9000-1",
+		ChainID:         "point_10687-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: consAddress.Bytes(),
 

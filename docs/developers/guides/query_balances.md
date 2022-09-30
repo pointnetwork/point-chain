@@ -8,7 +8,7 @@ Learn how to query balances of IBC Cosmos Coins and ERC-20s on Evmos. {synopsis}
 
 This guide will cover the following query methods:
 
-- [`evmosd` & Tendermint RPC](#evmosd--tendermint-rpc)
+- [`pointd` & Tendermint RPC](#pointd--tendermint-rpc)
 - [JSON-RPC](#json-rpc)
 - [gRPC](#grpc)
 
@@ -16,15 +16,15 @@ This guide will cover the following query methods:
 **Note**: In this document, the command line is used to interact with endpoints. For dApp developers, using libraries such as [cosmjs](https://github.com/cosmos/cosmjs) and [evmosjs](../libraries/evmosjs.md) is recommended instead.
 :::
 
-## `evmosd` & Tendermint RPC
+## `pointd` & Tendermint RPC
 
-Upon [installation](../../validators/quickstart/installation.md) and [configuration](../../validators/quickstart/binary.md) of the Evmos Daemon, developers can query account balances using `evmosd` with the following CLI command:
+Upon [installation](../../validators/quickstart/installation.md) and [configuration](../../validators/quickstart/binary.md) of the Evmos Daemon, developers can query account balances using `pointd` with the following CLI command:
 
 ```bash
-$ evmosd query bank balances $EVMOSADDRESS --count-total=$COUNTTOTAL --height=$HEIGHT --output=$OUTPUT --node=$NODE
+$ pointd query bank balances $EVMOSADDRESS --count-total=$COUNTTOTAL --height=$HEIGHT --output=$OUTPUT --node=$NODE
 balances:
 - amount: "1000000000000000000"
-  denom: aevmos
+  denom: apoint
 - amount: "100000"
   denom: ibc/ED07A3391A112B175915CD8FAF43A2DA8E4790EDE12566649D0C2F97716B8518
 pagination:
@@ -40,10 +40,10 @@ where:
 - (optional) `$OUTPUT` is the output format (eg. `text`).
 - (optional if running local node) `$NODE` is the Tendermint RPC node information is requested from (eg. `https://tendermint.bd.evmos.org:26657`).
 
-Details of non-native currencies (ie. not `aevmos`) can be queried with the following CLI command:
+Details of non-native currencies (ie. not `apoint`) can be queried with the following CLI command:
 
 ```bash
-$ evmosd query erc20 token-pair $DENOM --node=$NODE --height=$HEIGHT --output=$OUTPUT
+$ pointd query erc20 token-pair $DENOM --node=$NODE --height=$HEIGHT --output=$OUTPUT
 token_pair:
   contract_owner: OWNER_MODULE
   denom: ibc/ED07A3391A112B175915CD8FAF43A2DA8E4790EDE12566649D0C2F97716B8518
@@ -55,7 +55,7 @@ where `$DENOM` is the denomination of the coin (eg. `ibc/ED07A3391A1...`).
 
 ## JSON-RPC
 
-Developers can query account balances of `aevmos` using the [`eth_getBalance`](../json-rpc/endpoints.md#ethgetbalance) JSON-RPC method in conjunction with [`curl`](https://curl.se/):
+Developers can query account balances of `apoint` using the [`eth_getBalance`](../json-rpc/endpoints.md#ethgetbalance) JSON-RPC method in conjunction with [`curl`](https://curl.se/):
 
 ```bash
 # Request

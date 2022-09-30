@@ -19,13 +19,13 @@ import (
 	"github.com/evmos/ethermint/tests"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
+	ibctransfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 
-	"github.com/evmos/evmos/v8/app"
-	v5 "github.com/evmos/evmos/v8/app/upgrades/v5"
-	evmostypes "github.com/evmos/evmos/v8/types"
-	claimskeeper "github.com/evmos/evmos/v8/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/evmos/evmos/v9/app"
+	v5 "github.com/evmos/evmos/v9/app/upgrades/v5"
+	evmostypes "github.com/evmos/evmos/v9/types"
+	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
+	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
 )
 
 type UpgradeTestSuite struct {
@@ -189,7 +189,7 @@ func (suite *UpgradeTestSuite) TestMigrateClaim() {
 }
 
 func (suite *UpgradeTestSuite) TestUpdateConsensusParams() {
-	unbondingDuration := suite.app.GetStakingKeeper().UnbondingTime(suite.ctx)
+	unbondingDuration := suite.app.GetStakingKeeperSDK().UnbondingTime(suite.ctx)
 
 	testCases := []struct {
 		name              string
@@ -262,7 +262,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			"native IBC tokens",
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{
@@ -284,7 +284,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			},
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{
@@ -309,7 +309,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			"with invalid tokens",
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{
@@ -331,7 +331,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			},
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{

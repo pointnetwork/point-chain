@@ -27,10 +27,10 @@ In this example, the default ports for Evmos will be used, and the ports of the 
 
 ## Evmos Daemon Settings
 
-First, set `grpc server` on port `9090` in the `app.toml` file from the `$HOME/.evmosd/config` directory:
+First, set `grpc server` on port `9090` in the `app.toml` file from the `$HOME/.pointd/config` directory:
 
 ```bash
-vim $HOME/.evmosd/config/app.toml
+vim $HOME/.pointd/config/app.toml
 ```
 
 ```bash
@@ -43,10 +43,10 @@ enable = true
 address = "0.0.0.0:9090"
 ```
 
-Then, set the `pprof_laddr` to port `6060`, `rpc laddr` to port `26657`, and `prp laddr` to `26656` in the `config.toml` file from the `$HOME/.evmosd/config` directory:
+Then, set the `pprof_laddr` to port `6060`, `rpc laddr` to port `26657`, and `prp laddr` to `26656` in the `config.toml` file from the `$HOME/.pointd/config` directory:
 
 ```bash
-vim $HOME/.evmosd/config/config.toml
+vim $HOME/.pointd/config/config.toml
 ```
 
 ```bash
@@ -182,6 +182,7 @@ rpc_addr = 'http://127.0.0.1:26657'
 grpc_addr = 'http://127.0.0.1:9090'
 websocket_addr = 'ws://127.0.0.1:26657/websocket'
 ...
+address_type = { derivation = 'ethermint', proto_type = { pk_type = '/ethermint.crypto.v1.ethsecp256k1.PubKey' } }
 [chains.packet_filter]
 policy = 'allow'
 list = [

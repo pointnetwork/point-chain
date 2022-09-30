@@ -26,7 +26,7 @@ const (
 
 const (
 	// DisplayDenom defines the denomination displayed to users in client applications.
-	DisplayDenom = "point"
+	DisplayDenom = "evmos"
 	// BaseDenom defines to the default denomination used in Evmos (staking, EVM, governance, etc.)
 	BaseDenom = "apoint"
 )

@@ -67,7 +67,7 @@ const sender = {
 
 const fee = {
     amount: '20',
-    denom: 'aevmos',
+    denom: 'apoint',
     gas: '200000',
 }
 
@@ -76,7 +76,7 @@ const memo = ''
 const params = {
     destinationAddress: 'evmos1pmk2r32ssqwps42y3c9d4clqlca403yd9wymgr',
     amount: '1',
-    denom: 'aevmos',
+    denom: 'apoint',
 }
 
 const msg = createMessageSend(chain, sender, fee, memo, params)

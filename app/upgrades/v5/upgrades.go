@@ -15,16 +15,16 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	ibctransferkeeper "github.com/cosmos/ibc-go/v3/modules/apps/transfer/keeper"
-	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
+	ibctransferkeeper "github.com/cosmos/ibc-go/v5/modules/apps/transfer/keeper"
+	ibctransfertypes "github.com/cosmos/ibc-go/v5/modules/apps/transfer/types"
 
 	feemarketv010types "github.com/evmos/ethermint/x/feemarket/migrations/v010/types"
 	feemarketv011 "github.com/evmos/ethermint/x/feemarket/migrations/v011"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v8/types"
-	claimskeeper "github.com/evmos/evmos/v8/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/evmos/evmos/v9/types"
+	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
+	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
 )
 
 // TestnetDenomMetadata defines the metadata for the tEVMOS denom on testnet
@@ -34,17 +34,17 @@ var TestnetDenomMetadata = banktypes.Metadata{
 		{
 			Denom:    "atpoint",
 			Exponent: 0,
-			Aliases:  []string{"attotpoint"},
+			Aliases:  []string{"attotevmos"},
 		},
 		{
-			Denom:    "tpoint",
+			Denom:    "tevmos",
 			Exponent: 18,
 		},
 	},
 	Base:    "atpoint",
-	Display: "tpoint",
-	Name:    "Testnet Point",
-	Symbol:  "tPOINT",
+	Display: "tevmos",
+	Name:    "Testnet Evmos",
+	Symbol:  "tEVMOS",
 }
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v5

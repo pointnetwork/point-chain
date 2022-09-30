@@ -3,16 +3,17 @@ package keeper_test
 import (
 	"time"
 
+	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v8/testutil"
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/evmos/evmos/v9/testutil"
+	"github.com/evmos/evmos/v9/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestTotalUnclaimed() {
 	ctx := sdk.WrapSDKContext(suite.ctx)
-	coins := sdk.NewCoins(sdk.NewCoin("aevmos", sdk.NewInt(1000)))
+	coins := sdk.NewCoins(sdk.NewCoin("apoint", sdk.NewInt(1000)))
 
 	testCases := []struct {
 		name       string
@@ -61,7 +62,7 @@ func (suite *KeeperTestSuite) TestClaimsRecords() {
 		malleate      func()
 		expErr        bool
 		recordsAmount int
-		initialAmount sdk.Int
+		initialAmount math.Int
 		actions       []bool
 	}{
 		{
