@@ -39,9 +39,9 @@ import (
 	servercfg "github.com/evmos/ethermint/server/config"
 	srvflags "github.com/evmos/ethermint/server/flags"
 
-	"github.com/evmos/evmos/v8/app"
-	cmdcfg "github.com/evmos/evmos/v8/cmd/config"
-	evmoskr "github.com/evmos/evmos/v8/crypto/keyring"
+	"github.com/pointnetwork/point-chain/v8/app"
+	cmdcfg "github.com/pointnetwork/point-chain/v8/cmd/config"
+	evmoskr "github.com/pointnetwork/point-chain/v8/crypto/keyring"
 )
 
 const (
@@ -102,7 +102,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 
 			// TODO: remove the lines below once Cosmos SDK v0.46 is released
 			serverCtx := sdkserver.GetServerContextFromCmd(cmd)
-			serverCtx.Config.Consensus.TimeoutCommit = time.Second
+			serverCtx.Config.Consensus.TimeoutCommit = 1 * time.Second
 
 			return sdkserver.SetCmdServerContext(cmd, serverCtx)
 		},

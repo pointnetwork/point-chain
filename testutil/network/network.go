@@ -48,7 +48,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/evmos/ethermint/crypto/hd"
-	"github.com/evmos/evmos/v8/app"
+	"github.com/pointnetwork/point-chain/v8/app"
 
 	"github.com/evmos/ethermint/encoding"
 	"github.com/evmos/ethermint/server/config"
@@ -330,7 +330,7 @@ func New(l Logger, baseDir string, cfg Config) (*Network, error) {
 		ctx.Logger = logger
 
 		nodeDirName := fmt.Sprintf("node%d", i)
-		nodeDir := filepath.Join(network.BaseDir, nodeDirName, "evmosd")
+		nodeDir := filepath.Join(network.BaseDir, nodeDirName, "pointd")
 		clientDir := filepath.Join(network.BaseDir, nodeDirName, "evmoscli")
 		gentxsDir := filepath.Join(network.BaseDir, "gentxs")
 

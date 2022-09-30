@@ -22,9 +22,9 @@ import (
 	feemarketv011 "github.com/evmos/ethermint/x/feemarket/migrations/v011"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v8/types"
-	claimskeeper "github.com/evmos/evmos/v8/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/pointnetwork/point-chain/v8/types"
+	claimskeeper "github.com/pointnetwork/point-chain/v8/x/claims/keeper"
+	claimstypes "github.com/pointnetwork/point-chain/v8/x/claims/types"
 )
 
 // TestnetDenomMetadata defines the metadata for the tEVMOS denom on testnet
@@ -32,19 +32,19 @@ var TestnetDenomMetadata = banktypes.Metadata{
 	Description: "The native EVM, governance and staking token of the Evmos testnet",
 	DenomUnits: []*banktypes.DenomUnit{
 		{
-			Denom:    "atevmos",
+			Denom:    "atpoint",
 			Exponent: 0,
-			Aliases:  []string{"attotevmos"},
+			Aliases:  []string{"attotpoint"},
 		},
 		{
-			Denom:    "tevmos",
+			Denom:    "tpoint",
 			Exponent: 18,
 		},
 	},
-	Base:    "atevmos",
-	Display: "tevmos",
-	Name:    "Testnet Evmos",
-	Symbol:  "tEVMOS",
+	Base:    "atpoint",
+	Display: "tpoint",
+	Name:    "Testnet Point",
+	Symbol:  "tPOINT",
 }
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v5

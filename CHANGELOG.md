@@ -55,6 +55,13 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (deps) Bump Ethermint version to [`v0.19.0`](https://github.com/evmos/ethermint/releases/tag/v0.19.0)
 - (feesplit) Add `x/feesplit` module
 
+## [v8.0.0] - 2022-09-16
+
+### State Machine Breaking
+
+- (deps) [\#845](https://github.com/evmos/evmos/pull/845) Bump Ethermint version to [`v0.19.0`](https://github.com/evmos/ethermint/releases/tag/v0.19.0)
+- (feesplit) Add `x/feesplit` module
+
 ### Improvements
 
 - (deps) [\#839](https://github.com/evmos/evmos/pull/839) Bump ibc-go to [`v3.2.0`](https://github.com/cosmos/ibc-go/releases/tag/v3.2.0) and Cosmos SDK to [`v0.45.7`](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.45.7).

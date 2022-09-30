@@ -26,7 +26,7 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	inflationtypes "github.com/evmos/evmos/v8/x/inflation/types"
+	inflationtypes "github.com/pointnetwork/point-chain/v8/x/inflation/types"
 
 	"github.com/evmos/ethermint/server"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
@@ -152,7 +152,7 @@ func collectGenFiles(cfg Config, vals []*Validator, outputDir string) error {
 	for i := 0; i < cfg.NumValidators; i++ {
 		tmCfg := vals[i].Ctx.Config
 
-		nodeDir := filepath.Join(outputDir, vals[i].Moniker, "evmosd")
+		nodeDir := filepath.Join(outputDir, vals[i].Moniker, "pointd")
 		gentxsDir := filepath.Join(outputDir, "gentxs")
 
 		tmCfg.Moniker = vals[i].Moniker

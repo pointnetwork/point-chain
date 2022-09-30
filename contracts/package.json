@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.7.2"
+    "@openzeppelin/contracts": "^4.7.3"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evmos/evmos.git"
+    "url": "git+https://github.com/pointnetwork/point-chain.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/evmos/evmos/issues"
+    "url": "https://github.com/pointnetwork/point-chain/issues"
   },
-  "homepage": "https://github.com/evmos/evmos#readme"
+  "homepage": "https://github.com/pointnetwork/point-chain#readme"
 }
