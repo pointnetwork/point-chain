@@ -7,7 +7,7 @@ pointd query slashing signing-info $(pointd tendermint show-validator)
 ```
 If your are jailed or was jailed earlier, it will return something like this.
 ```aidl
-address: evmosvalcons1qae8r355w5cryez6klj2d47nlddlk0k6n4nt8m
+address: pointvalcons1qae8r355w5cryez6klj2d47nlddlk0k6n4nt8m
 index_offset: "2"
 jailed_until: "2022-08-19T17:02:30.543786843Z"
 missed_blocks_counter: "2"
@@ -23,7 +23,7 @@ pointd query tendermint-validator-set | grep "$(pointd tendermint show-address)"
 ```
 if it's output is something like output below that means you are in active validator set already and no need to unjail.
 ```aidl
-address: evmosvalcons1qae8r355w5cryez6klj2d47nlddlk0k6n4nt8m
+address: pointvalcons1qae8r355w5cryez6klj2d47nlddlk0k6n4nt8m
 index_offset: "2"
 jailed_until: "2022-08-19T17:02:30.543786843Z"
 missed_blocks_counter: "2"

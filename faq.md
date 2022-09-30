@@ -346,7 +346,7 @@ Seed address has this format:
 To get the node id run:
 
 ```
-evmosd tendermint show-node-id
+pointd tendermint show-node-id
 ```
 
 To get your public ip run:

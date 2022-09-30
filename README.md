@@ -39,7 +39,7 @@ parent:
   </a>
 </div>
 
-Evmos is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
+Point network is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
 interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/tendermint/tendermint) consensus engine.
 
 **Note**: Requires [Go 1.18+](https://golang.org/dl/)
@@ -56,11 +56,11 @@ Or check out the latest [release](https://github.com/pointnetwork/point-chain/re
 
 ## Quick Start
 
-To learn how the Evmos works from a high-level perspective, go to the [Introduction](https://evmos.dev/about/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/validators/quickstart/run_node.html).
+To learn how the Point chain works from a high-level perspective, go to the [Introduction](https://evmos.dev/about/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/validators/quickstart/run_node.html).
 
 ## Community
 
-The following chat channels and forums are a great spot to ask questions about Evmos:
+The following chat channels and forums are a great spot to ask questions about Point network:
 
 - [Evmos Twitter](https://twitter.com/EvmosOrg)
 - [Evmos Discord](https://discord.gg/evmos)

@@ -4,13 +4,13 @@ At first you can see all the info for contracts doing this:
 
 Once you find your validator (by moniker or using some id)
 ```pointd tendermint show-validator```, you can have details for yours, 
-you need your key evmosvaloper format.
+you need your key pointvaloper format.
 
-Next command gives you a key starting with `evmosvaloper`:
+Next command gives you a key starting with `pointvaloper`:
 ```pointd keys show mykey -a --bech val```
 
 Which you need for the command:
-```pointd query staking validator <evmosvaloperkey>```
+```pointd query staking validator <pointvaloperkey>```
 
 You will get response:
 ```
@@ -32,7 +32,7 @@ description:
   website: “”
 jailed: true
 min_self_delegation: “100000000000000000000"
-operator_address: evmosvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr
+operator_address: pointvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr
 status: BOND_STATUS_UNBONDING
 tokens: “0”
 unbonding_height: “174822"
@@ -42,7 +42,7 @@ In tokens you can see the amount of staked tokens.
 
 Then you can run this command
 ```
-pointd tx staking unbond evmosvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr 98898998998000000000apoint \
+pointd tx staking unbond pointvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr 98898998998000000000apoint \
 --chain-id=point_10721-1 \
 --from=pugliese \
 --keyring-backend file \
@@ -73,6 +73,6 @@ pointd tx staking create-validator  \
 
 Once you check the tx was successful you can run:
 ```
-pointd query staking validator <evmosvaloperkey>
+pointd query staking validator <pointvaloperkey>
 ```
 and get the info from the blockchain (
