@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/evmos/evmos/v9/app"
-	pointd "github.com/evmos/evmos/v9/cmd/pointd"
+	pointd "github.com/evmos/evmos/v9/cmd/evmosd"
 )
 
 func TestInitCmd(t *testing.T) {
