@@ -230,7 +230,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		panic(err)
 	}
 
-	evmosApp := app.NewEvmos(
+	pointApp := app.NewPoint(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(sdkserver.FlagInvCheckPeriod)),
@@ -246,7 +246,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		baseapp.SetIndexEvents(cast.ToStringSlice(appOpts.Get(sdkserver.FlagIndexEvents))),
 	)
 
-	return evmosApp
+	return pointApp
 }
 
 // appExport creates a new simapp (optionally at a given height)
@@ -255,14 +255,14 @@ func (a appCreator) appExport(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, height int64, forZeroHeight bool, jailAllowedAddrs []string,
 	appOpts servertypes.AppOptions,
 ) (servertypes.ExportedApp, error) {
-	var evmosApp *app.Point
+	var pointApp *app.Point
 	homePath, ok := appOpts.Get(flags.FlagHome).(string)
 	if !ok || homePath == "" {
 		return servertypes.ExportedApp{}, errors.New("application home not set")
 	}
 
 	if height != -1 {
-		evmosApp = app.NewPoint(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		pointApp = app.NewPoint(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 
 		if err := pointApp.LoadHeight(height); err != nil {
 			return servertypes.ExportedApp{}, err
@@ -271,7 +271,7 @@ func (a appCreator) appExport(
 		pointApp = app.NewPoint(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 	}
 
-	return evmosApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
+	return pointApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
 }
 
 // initTendermintConfig helps to override default Tendermint Config values.
