@@ -18,7 +18,7 @@ import (
 	vestingtypes "github.com/evmos/evmos/v9/x/vesting/types"
 )
 
-// HandlerOptions defines the list of module keepers required to run the Evmos
+// HandlerOptions defines the list of module keepers required to run the Point
 // AnteHandler decorators.
 type HandlerOptions struct {
 	AccountKeeper          evmtypes.AccountKeeper

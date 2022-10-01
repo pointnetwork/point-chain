@@ -76,10 +76,10 @@ writing markdown files.
 
 ### Submit the Proposal to Testnet
 
-To [submit the proposal](../../users/governance/submitting.md) to testnet through the command line with [`evmosd`](../../validators/quickstart/binary.md), use the following command with `register-erc20`:
+To [submit the proposal](../../users/governance/submitting.md) to testnet through the command line with [`pointd`](../../validators/quickstart/binary.md), use the following command with `register-erc20`:
 
 ```bash
-evmosd tx gov submit-proposal register-erc20 <erc20-address> \
+pointd tx gov submit-proposal register-erc20 <erc20-address> \
   --title=<title> \
   --description=<description> \
   --deposit="1000000aevmos" \
@@ -91,7 +91,7 @@ evmosd tx gov submit-proposal register-erc20 <erc20-address> \
 However, note that if the CLI is used to create a proposal, and `description` is set using a flag, the text will be [escaped](https://en.wikipedia.org/wiki/Escape_sequences_in_C) which may have undesired effects. If the proposal creator is using markdown or line breaks it's recommended to put the proposal text into a json file and include that file as part of the CLI proposal, as opposed to individual fields in flags. The process of creating a json file containing the proposal can be found [here](../../users/governance/submitting.md#formatting-the-json-file-for-the-governance-proposal), and the CLI command for submitting the file is below:
 
 ```bash
-evmosd tx gov submit-proposal register-erc20 --proposal=<path/to/proposal.json>
+pointd tx gov submit-proposal register-erc20 --proposal=<path/to/proposal.json>
 ```
 
 You may want to submit your proposal to the testnet chain before the mainnet for a number of reasons, such as wanting to see what the proposal description will look like, to share what the proposal will look like in advance with stakeholders, and to signal that your proposal is about to go live on the mainnet.

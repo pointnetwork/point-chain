@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/ibc-go/v5/modules/core/exported"
 
 	"github.com/evmos/evmos/v9/ibc"
-	evmos "github.com/evmos/evmos/v9/types"
+	point "github.com/evmos/evmos/v9/types"
 	"github.com/evmos/evmos/v9/x/claims/types"
 )
 
@@ -85,7 +85,7 @@ func (k Keeper) OnRecvPacket(
 	}
 
 	// Get bech32 address from the counterparty and change the bech32 human
-	// readable prefix (HRP) of the sender to `evmos1`
+	// readable prefix (HRP) of the sender to `point1`
 	sender, recipient, senderBech32, recipientBech32, err := ibc.GetTransferSenderRecipient(packet)
 	if err != nil {
 		return channeltypes.NewErrorAcknowledgement(err)
@@ -125,7 +125,7 @@ func (k Keeper) OnRecvPacket(
 			// -> return error acknowledgement to prevent funds from getting stuck
 			return channeltypes.NewErrorAcknowledgement(
 				sdkerrors.Wrapf(
-					evmos.ErrKeyTypeNotSupported, "receiver address %s is not a valid ethereum address", recipientBech32,
+					point.ErrKeyTypeNotSupported, "receiver address %s is not a valid ethereum address", recipientBech32,
 				),
 			)
 		default:

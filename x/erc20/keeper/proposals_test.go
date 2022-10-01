@@ -208,9 +208,9 @@ func (suite KeeperTestSuite) TestRegisterCoin() {
 			false,
 		},
 		{
-			"evm denom registration - aevmos",
+			"evm denom registration - apoint",
 			func() {
-				metadata.Base = "aevmos"
+				metadata.Base = "apoint"
 				err := suite.app.BankKeeper.MintCoins(suite.ctx, inflationtypes.ModuleName, sdk.Coins{sdk.NewInt64Coin(metadata.Base, 1)})
 				suite.Require().NoError(err)
 			},

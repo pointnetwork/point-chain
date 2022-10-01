@@ -36,7 +36,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app            *app.Evmos
+	app            *app.Point
 	queryClient    types.QueryClient
 	queryClientEvm evm.QueryClient
 	address        common.Address
@@ -85,7 +85,7 @@ func (suite *KeeperTestSuite) SetupApp() {
 	suite.consAddress = sdk.ConsAddress(privCons.PubKey().Address())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9001-1",
+		ChainID:         "point_10687-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: suite.consAddress.Bytes(),
 

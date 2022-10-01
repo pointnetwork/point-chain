@@ -71,12 +71,12 @@ module.exports = {
     editLinks: true,
     custom: true,
     project: {
-      name: "Evmos",
-      denom: "Evmos",
-      ticker: "EVMOS",
-      binary: "evmosd",
-      testnet_denom: "tEvmos",
-      testnet_ticker: "tEVMOS",
+      name: Point,
+      denom: Point,
+      ticker: "POINT",
+      binary: "pointd",
+      testnet_denom: "uPoint",
+      testnet_ticker: "uPOINT",
       rpc_url: "https://eth.bd.evmos.org:8545",
       rpc_url_testnet: "https://eth.bd.evmos.dev:8545",
       rpc_url_local: "http://localhost:8545/",
@@ -96,7 +96,7 @@ module.exports = {
     algolia: {
       id: process.env.ALGOLIA_ID || '',
       key: process.env.ALGOLIA_KEY || '',
-      index: "evmos",
+      index: "point",
     },
     topbar: {
       banner: false,
@@ -105,7 +105,7 @@ module.exports = {
       auto: false,
       nav: [
         {
-          title: "About Evmos",
+          title: "About Point",
           children: [
             {
               title: "Introduction",
@@ -394,7 +394,7 @@ module.exports = {
           ],
         },
         {
-          title: "Evmos",
+          title: Point,
           children: [
             {
               title: "Jobs at Evmos",

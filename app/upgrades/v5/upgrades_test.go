@@ -32,7 +32,7 @@ type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *app.Evmos
+	app         *app.Point
 	consAddress sdk.ConsAddress
 }
 
@@ -262,7 +262,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			"native IBC tokens",
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{
@@ -284,7 +284,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			},
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{
@@ -309,7 +309,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			"with invalid tokens",
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{
@@ -331,7 +331,7 @@ func (suite *UpgradeTestSuite) TestUpdateIBCDenomTraces() {
 			},
 			ibctransfertypes.Traces{
 				{
-					BaseDenom: "aevmos",
+					BaseDenom: "apoint",
 					Path:      "",
 				},
 				{

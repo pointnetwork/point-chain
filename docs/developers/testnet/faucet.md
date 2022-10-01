@@ -27,10 +27,10 @@ After approval, you can see a transaction confirmation informing you that {{ $th
 
 ![chain add request](../../img/keplr_transaction.png)
 
-Alternatively you can also fill in your address on the input field in Bech32 (`evmos1...`) or Hex (`0x...`) format.
+Alternatively you can also fill in your address on the input field in Bech32 (`point1...`) or Hex (`0x...`) format.
 
 ::: warning
-If you use your Bech32 address, make sure you input the [account address](../../users/technical_concepts/accounts.md#addresses-and-public-keys) (`evmos1...`) and **NOT** the validator operator address (`evmosvaloper1...`)
+If you use your Bech32 address, make sure you input the [account address](../../users/technical_concepts/accounts.md#addresses-and-public-keys) (`point1...`) and **NOT** the validator operator address (`evmosvaloper1...`)
 :::
 
 ![faucet site](../../img/faucet_web_page.png)
@@ -58,4 +58,4 @@ For each request, the faucet transfers 1 {{ $themeConfig.project.testnet_denom }
 The public faucet addresses for the testnet are:
 
 - **Hex**: [`0xBaE9A7A2210F94511F5050348251d0d7113E2cE3`](https://evm.evmos.dev/address/0xBaE9A7A2210F94511F5050348251d0d7113E2cE3/transactions)
-- **Bech32**: [`evmos1ht560g3pp729z86s2q6gy5ws6ugnut8r4uhyth`](https://testnet.mintscan.io/evmos/account/evmos1ht560g3pp729z86s2q6gy5ws6ugnut8r4uhyth)
+- **Bech32**: [`point1ht560g3pp729z86s2q6gy5ws6ugnut8r4uhyth`](https://testnet.mintscan.io/evmos/account/point1ht560g3pp729z86s2q6gy5ws6ugnut8r4uhyth)

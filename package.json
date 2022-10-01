@@ -1,6 +1,6 @@
 {
-  "name": "evmos",
-  "version": "1.0.0",
+  "name": "point",
+  "version": "0.0.3",
   "description": "<!-- parent:   order: false -->",
   "main": "index.js",
   "directories": {
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evmos/evmos.git"
+    "url": "git+https://github.com/pointnetwork/point-chain.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/evmos/evmos/issues"
+    "url": "https://github.com/pointnetwork/point-chain/issues"
   },
-  "homepage": "https://github.com/evmos/evmos#readme"
+  "homepage": "https://github.com/pointnetwork/point-chain#readme"
 }

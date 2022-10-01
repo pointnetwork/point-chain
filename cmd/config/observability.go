@@ -10,7 +10,7 @@ func EnableObservability() error {
 	// }
 
 	// pe, err := prometheus.NewExporter(prometheus.Options{
-	// 	Namespace: "evmosd",
+	// 	Namespace: "pointd",
 	// })
 	// if err != nil {
 	// 	return fmt.Errorf("cmd/config: failed to create the OpenCensus Prometheus exporter: %w", err)
@@ -25,7 +25,7 @@ func EnableObservability() error {
 	// mux := http.NewServeMux()
 	// mux.Handle("/metrics", pe)
 
-	// // TODO: Derive the Prometheus observability exporter from the Evmos config.
+	// // TODO: Derive the Prometheus observability exporter from the Point config.
 	// addr := ":8877"
 	// go func() {
 	// 	println("Serving the Prometheus observability exporter at", addr)
