@@ -88,6 +88,7 @@ This key is saved in file ~/.pointd/config/priv_validator_key.json (backup this 
 You can see information for this key using.
 
 To see public validator key
+
 ```
 pointd tendermint show-validator
 ```
@@ -116,6 +117,7 @@ pointd query staking validators
 ```
 
 the output returns an array with commisions per validator
+
 ```
 - commission:
     commission_rates:
@@ -141,6 +143,7 @@ the output returns an array with commisions per validator
   unbonding_height: "211800"
   unbonding_time: "2022-09-09T17:02:49.643431493Z"
 ```
+
   Here you can see there are a relationship between tendermint public key and the operation_address (pointvaloper) used for staking the funds.
   That operation address is related to your application key.
 
@@ -208,6 +211,7 @@ pointd tendermint show-address
 ```
 
 ## Get information for all validators
+
 ```
 pointd query staking validators
 ```
@@ -222,7 +226,6 @@ or you can try providing your key name
 
 ```
 pointd query staking validator  $(pointd keys show <key-name> -a --bech val)
-
 ```
 
 ## Check if validator is jailed
