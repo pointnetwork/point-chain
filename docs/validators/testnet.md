@@ -10,12 +10,9 @@ This document outlines the steps to join an existing testnet {synopsis}
 
 You specify the network you want to join by setting the **genesis file** and **seeds**. If you need more information about past networks, check our [testnets repo](https://github.com/tharsis/testnets).
 
-| Testnet Chain ID | Description                       | Site                                                                       | Version                                                                                  | Status  |
-| ---------------- | --------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------- |
-| `evmos_9000-4`   | Point Chain_9000-4 Testnet              | [Point Chain 9000-4](https://github.com/tharsis/testnets/tree/main/evmos_9000-4) | [`{{ $themeConfig.project.latest_version }}`](https://github.com/evmos/evmos/releases) | `Live`  |
-| `evmos_9000-3`   | Point Chain_9000-3 Testnet              | [Point Chain 9000-3](https://github.com/tharsis/testnets/tree/main/evmos_9000-3) | [`v1.0.0-beta1`](https://github.com/evmos/evmos/releases/tag/v1.0.0-beta1)             | `Stale` |
-| `evmos_9000-2`   | Olympus Mons Incentivized Testnet | [Olympus Mons](https://github.com/tharsis/testnets/tree/main/olympus_mons) | [`v0.3.x`](https://github.com/evmos/evmos/releases)                                    | `Stale` |
-| `evmos_9000-1`   | Arsia Mons Testnet                | [Arsia Mons](https://github.com/tharsis/testnets/tree/main/arsia_mons)     | [`v0.1.x`](https://github.com/evmos/evmos/releases)                                    | `Stale` |
+| Testnet Chain ID | Description                       | Site                                                                | Version                                             | Status  |
+|------------------|-----------------------------------|---------------------------------------------------------------------|-----------------------------------------------------| ------- |
+| `point_10731-1`  | Uranus Testnet                    | [Uranus EVM explorer](http://explorer-xnet-triton.point.space:4001) | [`v0.0.2`](https://github.com/pointnetwork/point-chain/releases/tag/v0.0.2) | `Live` |
 
 
 ## Install `pointd`
@@ -35,7 +32,7 @@ See the Official [Chain IDs](./../users/technical_concepts/chain_id.md#official-
 :::
 
 ```bash
-pointd config chain-id evmos_9000-4
+pointd config chain-id point_10731-1
 ```
 
 ## Initialize Node
@@ -43,7 +40,7 @@ pointd config chain-id evmos_9000-4
 We need to initialize the node to create all the necessary validator and node configuration files:
 
 ```bash
-pointd init <your_custom_moniker> --chain-id evmos_9000-4
+pointd init <your_custom_moniker> --chain-id point_10731-1
 ```
 
 ::: danger
@@ -57,11 +54,11 @@ In the `config` directory, the most important files for configuration are `app.t
 
 ### Copy the Genesis File
 
-Check the `genesis.json` file from the [`archive`](https://archive.evmos.dev/evmos_9000-4/genesis.json) and copy it over to the `config` directory: `~/.pointd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
+Check the `genesis.json` file from the [`archive`](https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/testnet-xNet-Uranus-1/genesis.json) and copy it over to the `config` directory: `~/.pointd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
 ```bash
 sudo apt install -y unzip wget
-wget -P ~/.pointd/config https://archive.evmos.dev/evmos_9000-4/genesis.json
+wget -P ~/.pointd/config https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/testnet-xNet-Uranus-1/genesis.json
 ```
 
 Then verify the correctness of the genesis configuration file:
@@ -91,7 +88,7 @@ seeds = "<node-id>@<ip>:<p2p port>"
 You can use the following code to get seeds from the repo and add it to your config:
 
 ```bash
-SEEDS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/evmos_9000-4/seeds.txt | awk '{print $1}' | paste -s -d, -`
+SEEDS=`curl -sL https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/testnet-xNet-Uranus-1/seeds.txt | awk '{print $1}' | paste -s -d, -`
 sed -i.bak -e "s/^seeds =.*/seeds = \"$SEEDS\"/" ~/.pointd/config/config.toml
 ```
 
@@ -104,10 +101,10 @@ For more information on seeds and peers, you can the Tendermint [P2P documentati
 We can set the [`persistent_peers`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.pointd/config/config.toml` to specify peers that your node will maintain persistent connections with. You can retrieve them from the list of
 available peers on the [`testnets`](https://github.com/tharsis/testnets) repo.
 
-A list of available persistent peers is also available in the `#find-peers` channel in the [Point Chain Discord](https://discord.gg/evmos). You can get a random 10 entries from the `peers.txt` file in the `PEERS` variable by running the following command:
+A list of available persistent peers is also available in the `#validators-share-their-peers` channel in the [Point Chain Discord Channel](https://discord.com/channels/846042910536237097/1022073517149265960). You can get a random 10 entries from the `peers.txt` file in the `PEERS` variable by running the following command:
 
 ```bash
-PEERS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/evmos_9000-4/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
+PEERS=`curl -sL https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/testnet-xNet-Uranus-1/seeds.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
 ```
 
 Use `sed` to include them into the configuration. You can also add them manually:
@@ -126,7 +123,7 @@ For more details on how to run your validator, follow [these](./setup/run_valida
 
 ```bash
 pointd tx staking create-validator \
-  --amount=1000000000000atevmos \
+  --amount=1000000000000apoint \
   --pubkey=$(pointd tendermint show-validator) \
   --moniker="Point ChainWhale" \
   --chain-id=<chain_id> \
@@ -135,7 +132,7 @@ pointd tx staking create-validator \
   --commission-max-change-rate="0.01" \
   --min-self-delegation="1000000" \
   --gas="auto" \
-  --gas-prices="0.025atevmos" \
+  --gas-prices="0.025apoint" \
   --from=<key_name>
 ```
 
@@ -184,7 +181,7 @@ pointd start
 
 ## Share your Peer
 
-You can share your peer to posting it in the `#find-peers` channel in the [Point Chain Discord](https://discord.gg/evmos).
+You can share your peer to posting it in the `#validators-share-their-peers` channel in the [Point Chain Discord Channel](https://discord.com/channels/846042910536237097/1022073517149265960).
 
 ::: tip
 To get your Node ID use
@@ -194,7 +191,3 @@ pointd tendermint show-node-id
 ```
 
 :::
-
-## State Syncing a Node
-
-If you want to join the network using State Sync (quick, but not applicable for archive nodes), check our [State Sync](https://docs.evmos.org/validators/setup/statesync.html) page

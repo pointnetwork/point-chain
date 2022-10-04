@@ -55,7 +55,7 @@ import { createMessageSend } from @tharsis/transactions
 
 const chain = {
     chainId: 9000,
-    cosmosChainId: 'evmos_9000-4',
+    cosmosChainId: 'point_10731-4',
 }
 
 const sender = {
