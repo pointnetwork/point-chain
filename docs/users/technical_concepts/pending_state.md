@@ -8,7 +8,7 @@ Learn how Point Chain handles pending state queries. {synopsis}
 
 ## Pre-requisite Readings
 
-- [Tendermint Mempool](https://docs.tendermint.com/v0.34/tendermint-core/mempool.html/) {prereq}
+- [Tendermint Mempool](https://docs.tendermint.com/v0.34/tendermint-core/mempool.html) {prereq}
 
 ## Point Chain vs Ethereum
 
