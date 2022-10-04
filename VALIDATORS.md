@@ -9,19 +9,19 @@ Following this document and/or performing validation activities requires highly 
 ## Table of Contents
 
 - [Join Point-Mainnet as a Validator](#join-point-mainnet-as-a-validator)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Prerequisites](#prerequisites)
-  - [Initialize the Node](#initialize-the-node)
-  - [Run the Node](#run-the-node)
-  - [Sending your first transaction](#sending-your-first-transaction)
-    - [Add custom network](#add-custom-network)
-    - [Add the wallet with your 1024 POINT](#add-the-wallet-with-your-1024-point)
-    - [Find out which address is your validator wallet](#find-out-which-address-is-your-validator-wallet)
-    - [Fund the validator](#fund-the-validator)
-  - [Stake POINT and Join as a Validator](#stake-point-and-join-as-a-validator)
-  - [What's Next?](#whats-next)
-  - [Useful commands](#useful-commands)
+    - [Table of Contents](#table-of-contents)
+    - [Overview](#overview)
+    - [Prerequisites](#prerequisites)
+    - [Initialize the Node](#initialize-the-node)
+    - [Run the Node](#run-the-node)
+    - [Sending your first transaction](#sending-your-first-transaction)
+        - [Add custom network](#add-custom-network)
+        - [Add the wallet with your 1024 POINT](#add-the-wallet-with-your-1024-point)
+        - [Find out which address is your validator wallet](#find-out-which-address-is-your-validator-wallet)
+        - [Fund the validator](#fund-the-validator)
+    - [Stake POINT and Join as a Validator](#stake-point-and-join-as-a-validator)
+    - [What's Next?](#whats-next)
+    - [Useful commands](#useful-commands)
 
 ## Overview
 
