@@ -1,4 +1,5 @@
 # Unjailing tutorial
+
 Being a validator you can be jailed for some reason. 
 
 to check if your validator is jailed or not run the command below:
@@ -51,5 +52,5 @@ The check again if you are in active validator set or not using the command belo
 ```aidl
 pointd query tendermint-validator-set | grep "$(pointd tendermint show-address)"
 ```
-  
+
 than run pointd query tendermint-validator-set | grep "$(pointd tendermint show-address)" and if it shows correct data then everything is fine and validator is working again. But if you run pointd query slashing signing-info $(pointd tendermint show-validator) command again it will always show your previous jail even if it is ended already. It is just a historical record.
