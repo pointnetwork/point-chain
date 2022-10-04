@@ -14,7 +14,7 @@ import (
 
 const (
 	// MainnetChainID defines the Evmos EIP155 chain ID for mainnet
-	MainnetChainID = "evmos_9001"
+	MainnetChainID = "point_10687"
 	// TestnetChainID defines the Evmos EIP155 chain ID for testnet
 	TestnetChainID = "point_10731"
 )
