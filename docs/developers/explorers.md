@@ -16,7 +16,6 @@ Point Chain offers two types block explorers: an EVM explorer and a Cosmos explo
 
 Below is a list of public block explorers that support Point Chain Mainnet:
 
-
 |            | Category | URL                                                    |
 | ---------- | -------- | ------------------------------------------------------ |
 | PingPub  | `cosmos` | [cosmos.pointnetwork.io/point](https://cosmos.pointnetwork.io/point) |
