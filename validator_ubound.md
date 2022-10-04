@@ -1,4 +1,5 @@
 # Unstake money:
+
 At first you can see all the info for contracts doing this:
 ```pointd query staking validators```.
 
@@ -13,6 +14,7 @@ Which you need for the command:
 ```pointd query staking validator <evmosvaloperkey>```
 
 You will get response:
+
 ```
 commission:
   commission_rates:
@@ -38,9 +40,11 @@ tokens: “0”
 unbonding_height: “174822"
 unbonding_time: “2022-09-08T23:37:07.821587227Z”
 ```
+
 In tokens you can see the amount of staked tokens.
 
 Then you can run this command
+
 ```
 pointd tx staking unbond evmosvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr 98898998998000000000apoint \
 --chain-id=point_10721-1 \
@@ -55,6 +59,7 @@ you can try changing wallet address but it is notenough, so you need
 delete the file: ```~/.pointd/config/priv_validator_key.json```
 
 Then restarted the node, and run the query again:
+
 ```
 pointd tx staking create-validator  \
 --amount=100000000000000000000apoint \
@@ -72,7 +77,5 @@ pointd tx staking create-validator  \
 ```
 
 Once you check the tx was successful you can run:
-```
-pointd query staking validator <evmosvaloperkey>
-```
+```pointd query staking validator <evmosvaloperkey>```
 and get the info from the blockchain (
