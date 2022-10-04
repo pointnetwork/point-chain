@@ -14,7 +14,6 @@ You specify the network you want to join by setting the **genesis file** and **s
 |------------------|-----------------------------------|---------------------------------------------------------------------|-----------------------------------------------------| ------- |
 | `point_10731-1`  | Uranus Testnet                    | [Uranus EVM explorer](http://explorer-xnet-triton.point.space:4001) | [`v0.0.2`](https://github.com/pointnetwork/point-chain/releases/tag/v0.0.2) | `Live` |
 
-
 ## Install `pointd`
 
 Follow the [installation](./quickstart/installation.md) document to install the {{ $themeConfig.project.name }} binary `{{ $themeConfig.project.binary }}`.

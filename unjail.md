@@ -1,6 +1,6 @@
 # Unjailing tutorial
 
-Being a validator you can be jailed for some reason. 
+Being a validator you can be jailed for some reason.
 
 to check if your validator is jailed or not run the command below:
 
