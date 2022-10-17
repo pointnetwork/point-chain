@@ -9,6 +9,7 @@ import (
 	v2 "github.com/pointnetwork/point-chain/v8/app/upgrades/v2"
 	v4 "github.com/pointnetwork/point-chain/v8/app/upgrades/v4"
 	v7 "github.com/pointnetwork/point-chain/v8/app/upgrades/v7"
+	v82 "github.com/pointnetwork/point-chain/v8/app/upgrades/v8_2"
 	"github.com/pointnetwork/point-chain/v8/types"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 //  1. Release a non-breaking patch version so that the chain can set the scheduled upgrade plan at upgrade-height.
 //  2. Release the software defined in the upgrade-info
-func (app *Evmos) ScheduleForkUpgrade(ctx sdk.Context) {
+func (app *Point) ScheduleForkUpgrade(ctx sdk.Context) {
 	// NOTE: there are no testnet forks for the existing versions
 	if !types.IsMainnet(ctx.ChainID()) {
 		return
@@ -41,6 +42,9 @@ func (app *Evmos) ScheduleForkUpgrade(ctx sdk.Context) {
 	case v7.MainnetUpgradeHeight:
 		upgradePlan.Name = v7.UpgradeName
 		upgradePlan.Info = v7.UpgradeInfo
+	case v82.MainnetUpgradeHeight:
+		upgradePlan.Name = v82.UpgradeName
+		upgradePlan.Info = v82.UpgradeInfo
 	default:
 		// No-op
 		return

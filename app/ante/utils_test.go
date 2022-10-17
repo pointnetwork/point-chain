@@ -33,7 +33,7 @@ type AnteTestSuite struct {
 	suite.Suite
 
 	ctx   sdk.Context
-	app   *app.Evmos
+	app   *app.Point
 	denom string
 }
 
@@ -46,7 +46,7 @@ func (suite *AnteTestSuite) SetupTest(isCheckTx bool) {
 	suite.app = app.Setup(isCheckTx, feemarkettypes.DefaultGenesisState())
 	suite.ctx = suite.app.BaseApp.NewContext(isCheckTx, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9001-1",
+		ChainID:         "point_10687-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: consAddress.Bytes(),
 
