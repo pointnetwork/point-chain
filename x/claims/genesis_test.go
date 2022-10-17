@@ -26,7 +26,7 @@ type GenesisTestSuite struct {
 
 	ctx sdk.Context
 
-	app     *app.Point
+	app     *app.Evmos
 	genesis types.GenesisState
 }
 

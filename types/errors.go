@@ -5,9 +5,9 @@ import (
 )
 
 // RootCodespace is the codespace for all errors defined in this package
-const RootCodespace = "point"
+const RootCodespace = "evmos"
 
-// root error codes for Point
+// root error codes for Evmos
 const (
 	codeKeyTypeNotSupported = iota + 2
 )

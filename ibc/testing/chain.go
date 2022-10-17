@@ -24,7 +24,7 @@ import (
 )
 
 // ChainIDPrefix defines the default chain ID prefix for Evmos test chains
-var ChainIDPrefix = "point_10731-"
+var ChainIDPrefix = "evmos_9000-"
 
 func init() {
 	ibcgotesting.ChainIDPrefix = ChainIDPrefix

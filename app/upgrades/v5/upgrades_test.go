@@ -32,7 +32,7 @@ type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *app.Point
+	app         *app.Evmos
 	consAddress sdk.ConsAddress
 }
 

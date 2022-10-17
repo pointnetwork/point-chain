@@ -1,10 +1,9 @@
-# Unstake money
-
+# Unstake money:
 At first you can see all the info for contracts doing this:
 ```pointd query staking validators```.
 
 Once you find your validator (by moniker or using some id)
-```pointd tendermint show-validator```, you can have details for yours,
+```pointd tendermint show-validator```, you can have details for yours, 
 you need your key evmosvaloper format.
 
 Next command gives you a key starting with `evmosvaloper`:
@@ -14,7 +13,6 @@ Which you need for the command:
 ```pointd query staking validator <evmosvaloperkey>```
 
 You will get response:
-
 ```
 commission:
   commission_rates:
@@ -40,11 +38,9 @@ tokens: “0”
 unbonding_height: “174822"
 unbonding_time: “2022-09-08T23:37:07.821587227Z”
 ```
-
 In tokens you can see the amount of staked tokens.
 
 Then you can run this command
-
 ```
 pointd tx staking unbond evmosvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr 98898998998000000000apoint \
 --chain-id=point_10721-1 \
@@ -54,12 +50,11 @@ pointd tx staking unbond evmosvaloper1uzwfry3nlrsc36j88zlk0un6nfyn6rrzkp86vr 988
 --gas-prices="0.025apoint"
 ```
 
-If didn’t let you use the same wallet address and validator address,
+If didn’t let you use the same wallet address and validator address, 
 you can try changing wallet address but it is notenough, so you need
 delete the file: ```~/.pointd/config/priv_validator_key.json```
 
 Then restarted the node, and run the query again:
-
 ```
 pointd tx staking create-validator  \
 --amount=100000000000000000000apoint \
@@ -77,5 +72,7 @@ pointd tx staking create-validator  \
 ```
 
 Once you check the tx was successful you can run:
-```pointd query staking validator <evmosvaloperkey>```
-and get the info from the blockchain
+```
+pointd query staking validator <evmosvaloperkey>
+```
+and get the info from the blockchain (

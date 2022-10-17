@@ -213,6 +213,7 @@ Node init
 pointd init $moniker --chain-id $CHAIN_ID
 ```
 
+
 Move genesis file to .pointd/config folder
 
 ```bash

@@ -122,7 +122,7 @@ func DefaultConfig() Config {
 	}
 }
 
-// NewAppConstructor returns a new Point AppConstructor
+// NewAppConstructor returns a new Evmos AppConstructor
 func NewAppConstructor(encodingCfg params.EncodingConfig) AppConstructor {
 	return func(val Validator) servertypes.Application {
 		return app.NewEvmos(
