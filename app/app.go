@@ -108,12 +108,14 @@ import (
 	_ "github.com/pointnetwork/point-chain/v8/client/docs/statik"
 
 	"github.com/pointnetwork/point-chain/v8/app/ante"
+
 	v2 "github.com/pointnetwork/point-chain/v8/app/upgrades/v2"
 	v4 "github.com/pointnetwork/point-chain/v8/app/upgrades/v4"
 	v5 "github.com/pointnetwork/point-chain/v8/app/upgrades/v5"
 	v6 "github.com/pointnetwork/point-chain/v8/app/upgrades/v6"
 	v7 "github.com/pointnetwork/point-chain/v8/app/upgrades/v7"
 	v8 "github.com/pointnetwork/point-chain/v8/app/upgrades/v8"
+	v81 "github.com/pointnetwork/point-chain/v8/app/upgrades/v8_1"
 	"github.com/pointnetwork/point-chain/v8/x/claims"
 	claimskeeper "github.com/pointnetwork/point-chain/v8/x/claims/keeper"
 	claimstypes "github.com/pointnetwork/point-chain/v8/x/claims/types"
@@ -1089,6 +1091,14 @@ func (app *Point) setupUpgradeHandlers() {
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v8.UpgradeName,
 		v8.CreateUpgradeHandler(
+			app.mm, app.configurator,
+		),
+	)
+
+	// v8.1 upgrade handler
+	app.UpgradeKeeper.SetUpgradeHandler(
+		v81.UpgradeName,
+		v81.CreateUpgradeHandler(
 			app.mm, app.configurator,
 		),
 	)
