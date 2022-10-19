@@ -82,6 +82,7 @@ Configure your validator key:
 
 ```pointd config chain-id point_10687-1```
 
+
 Generate a new key/mnemonic for validator: ```pointd keys add validatorkey --keyring-backend file```
 You may want to save output somewhere because it contains your point address and other usefull information.
 
@@ -170,7 +171,6 @@ Once the node is fully synced, and you got some POINT to stake, check your balan
 If you have enough balance stake your assets and check the transaction:
 
 Before running the command, adjust:
-
 * Replace <myvalidator> with your own public name for your validator!
 * Adjust commissions if you need
 * Adjust amount to stake as much as you need (remember that the amounts are in `apoint` and you need to delete 18 zeroes from the right to get to the amount of POINT)
