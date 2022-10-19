@@ -8,7 +8,8 @@ AND
 
 2) the output of these commands for debugging:
 
-(if your output message gets deleted from Discord due to bots being stupid - happens sometimes - send as a screenshot instead, or with https://paste.ofcode.org/)_
+* (if your output message gets deleted from Discord due to bots being stupid - happens sometimes - send as a screenshot instead, or with https://paste.ofcode.org/)_
+
 ```
 set -x
 git rev-list HEAD | head -n 1
