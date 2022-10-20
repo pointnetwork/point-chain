@@ -27,7 +27,7 @@ type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx                    sdk.Context
-	app                    *app.Evmos
+	app                    *app.Point
 	consAddress            sdk.ConsAddress
 	expiredOsmoClient      *tmclient.ClientState
 	activeOsmoClient       *tmclient.ClientState
@@ -48,7 +48,7 @@ func (suite *UpgradeTestSuite) SetupTest() {
 	suite.app = app.Setup(checkTx, feemarkettypes.DefaultGenesisState())
 	suite.ctx = suite.app.BaseApp.NewContext(checkTx, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9001-1",
+		ChainID:         "point_10687-1",
 		Time:            time.Date(2022, 5, 9, 8, 0, 0, 0, time.UTC),
 		ProposerAddress: suite.consAddress.Bytes(),
 

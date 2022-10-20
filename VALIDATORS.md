@@ -9,19 +9,19 @@ Following this document and/or performing validation activities requires highly 
 ## Table of Contents
 
 - [Join Point-Mainnet as a Validator](#join-point-mainnet-as-a-validator)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Prerequisites](#prerequisites)
-  - [Initialize the Node](#initialize-the-node)
-  - [Run the Node](#run-the-node)
-  - [Sending your first transaction](#sending-your-first-transaction)
-    - [Add custom network](#add-custom-network)
-    - [Add the wallet with your 1024 POINT](#add-the-wallet-with-your-1024-point)
-    - [Find out which address is your validator wallet](#find-out-which-address-is-your-validator-wallet)
-    - [Fund the validator](#fund-the-validator)
-  - [Stake POINT and Join as a Validator](#stake-point-and-join-as-a-validator)
-  - [What's Next?](#whats-next)
-  - [Useful commands](#useful-commands)
+    - [Table of Contents](#table-of-contents)
+    - [Overview](#overview)
+    - [Prerequisites](#prerequisites)
+    - [Initialize the Node](#initialize-the-node)
+    - [Run the Node](#run-the-node)
+    - [Sending your first transaction](#sending-your-first-transaction)
+        - [Add custom network](#add-custom-network)
+        - [Add the wallet with your 1024 POINT](#add-the-wallet-with-your-1024-point)
+        - [Find out which address is your validator wallet](#find-out-which-address-is-your-validator-wallet)
+        - [Fund the validator](#fund-the-validator)
+    - [Stake POINT and Join as a Validator](#stake-point-and-join-as-a-validator)
+    - [What's Next?](#whats-next)
+    - [Useful commands](#useful-commands)
 
 ## Overview
 
@@ -69,7 +69,7 @@ Compile the node from the sources:
 
 ```make install```
 
-_Note: Point Chain is a fork of point, and by default the working directory is ~/.point. Make sure you don’t already have data for another point node on the device you’re running the validator from._
+* Note: Point Chain is a fork of point, and by default the working directory is ~/.point. Make sure you don’t already have data for another point node on the device you’re running the validator from._
 
 ## Initialize the Node
 
@@ -82,7 +82,6 @@ Configure your validator key:
 ```pointd config keyring-backend file```
 
 ```pointd config chain-id point_10687-1```
-
 
 Generate a new key/mnemonic for validator: ```pointd keys add validatorkey --keyring-backend file```
 You may want to save output somewhere because it contains your point address and other usefull information.
@@ -172,6 +171,7 @@ Once the node is fully synced, and you got some POINT to stake, check your balan
 If you have enough balance stake your assets and check the transaction:
 
 Before running the command, adjust:
+
 * Replace <myvalidator> with your own public name for your validator!
 * Adjust commissions if you need
 * Adjust amount to stake as much as you need (remember that the amounts are in `apoint` and you need to delete 18 zeroes from the right to get to the amount of POINT)
@@ -240,5 +240,4 @@ Share any feedback, questions, and ideas there!
 
 * Halting Your Validator:
 
-  * When attempting to perform routine maintenance or planning for an upcoming coordinated upgrade, it can be useful to have your validator systematically and gracefully halt. You can achieve this by either setting the `halt-height` to the height at which you want your node to shutdown or by passing the `--halt-height` flag to `pointd`. The node will shutdown with a zero exit code at that given height after committing the block.
-
+    * When attempting to perform routine maintenance or planning for an upcoming coordinated upgrade, it can be useful to have your validator systematically and gracefully halt. You can achieve this by either setting the `halt-height` to the height at which you want your node to shutdown or by passing the `--halt-height` flag to `pointd`. The node will shutdown with a zero exit code at that given height after committing the block.

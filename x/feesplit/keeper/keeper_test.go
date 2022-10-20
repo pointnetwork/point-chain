@@ -19,9 +19,9 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	evm "github.com/evmos/ethermint/x/evm/types"
+	"github.com/pointnetwork/point-chain/v8/app"
 	claimtypes "github.com/pointnetwork/point-chain/v8/x/claims/types"
 	"github.com/pointnetwork/point-chain/v8/x/feesplit/types"
-	"github.com/pointnetwork/point-chain/v8/app"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	abci "github.com/tendermint/tendermint/abci/types"
@@ -36,7 +36,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app            *app.Evmos
+	app            *app.Point
 	queryClient    types.QueryClient
 	queryClientEvm evm.QueryClient
 	address        common.Address
@@ -85,7 +85,7 @@ func (suite *KeeperTestSuite) SetupApp() {
 	suite.consAddress = sdk.ConsAddress(privCons.PubKey().Address())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9001-1",
+		ChainID:         "point_10687-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: suite.consAddress.Bytes(),
 
