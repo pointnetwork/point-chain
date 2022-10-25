@@ -297,8 +297,8 @@ type Point struct {
 	tpsCounter *tpsCounter
 }
 
-// NewEvmos returns a reference to a new initialized Ethermint application.
-func NewEvmos(
+// NewPoint returns a reference to a new initialized Ethermint application.
+func NewPoint(
 	logger log.Logger,
 	db dbm.DB,
 	traceStore io.Writer,
