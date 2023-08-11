@@ -4,7 +4,7 @@ const (
 	// UpgradeName is the shared upgrade plan name for mainnet and testnet
 	UpgradeName = "v0.0.5"
 	// MainnetUpgradeHeight defines the Point mainnet block height on which the upgrade will take place
-	MainnetUpgradeHeight = 18450331 //18440331 + 2500*4
+	MainnetUpgradeHeight = 18580331 //18440331 + 2500 * (24*2+8)
 	// UpgradeInfo defines the binaries that will be used for the upgrade
 	UpgradeInfo = `'{"binaries":{
 		"darwin/arm64":"https://github.com/pointnetwork/point-chain/releases/download/v0.0.5/point-chain_0.0.5_Darwin_arm64.tar.gz",
