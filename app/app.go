@@ -108,6 +108,7 @@ import (
 	_ "github.com/pointnetwork/point-chain/v8/client/docs/statik"
 
 	"github.com/pointnetwork/point-chain/v8/app/ante"
+	"github.com/pointnetwork/point-chain/v8/app/upgrades/point_v5"
 	v2 "github.com/pointnetwork/point-chain/v8/app/upgrades/v2"
 	v4 "github.com/pointnetwork/point-chain/v8/app/upgrades/v4"
 	v5 "github.com/pointnetwork/point-chain/v8/app/upgrades/v5"
@@ -1089,6 +1090,14 @@ func (app *Evmos) setupUpgradeHandlers() {
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v8.UpgradeName,
 		v8.CreateUpgradeHandler(
+			app.mm, app.configurator,
+		),
+	)
+
+	// Point v5 upgrade handler
+	app.UpgradeKeeper.SetUpgradeHandler(
+		point_v5.UpgradeName,
+		point_v5.CreateUpgradeHandler(
 			app.mm, app.configurator,
 		),
 	)

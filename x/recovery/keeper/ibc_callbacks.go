@@ -16,10 +16,16 @@ import (
 	host "github.com/cosmos/ibc-go/v3/modules/core/24-host"
 	"github.com/cosmos/ibc-go/v3/modules/core/exported"
 
+	"github.com/pointnetwork/point-chain/v8/app/upgrades/point_v5"
 	"github.com/pointnetwork/point-chain/v8/ibc"
 	evmos "github.com/pointnetwork/point-chain/v8/types"
 	"github.com/pointnetwork/point-chain/v8/x/recovery/types"
 )
+
+// True when Height < point_v5 upgrade height
+func BeforeRecoveryPatch(ctx sdk.Context) bool {
+	return ctx.BlockHeight() < point_v5.MainnetUpgradeHeight
+}
 
 // OnRecvPacket performs an IBC receive callback. It returns the tokens that
 // users transferred to their Cosmos secp256k1 address instead of the Ethereum
@@ -90,7 +96,7 @@ func (k Keeper) OnRecvPacket(
 	// Check if recipient pubkey is a supported key (eth_secp256k1, amino multisig,
 	// ed25519). Continue and return success ACK as the funds are not stuck on
 	// chain for supported keys
-	if account != nil && evmos.IsSupportedKey(account.GetPubKey()) {
+	if account != nil && evmos.IsSupportedKey(account.GetPubKey()) && BeforeRecoveryPatch(ctx) {
 		return ack
 	}
 

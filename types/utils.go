@@ -17,6 +17,8 @@ const (
 	MainnetChainID = "evmos_9001"
 	// TestnetChainID defines the Evmos EIP155 chain ID for testnet
 	TestnetChainID = "evmos_9000"
+
+	PointMainnetChainID = "point_10687-1"
 )
 
 // IsMainnet returns true if the chain-id has the Evmos mainnet EIP155 chain prefix.
@@ -27,6 +29,10 @@ func IsMainnet(chainID string) bool {
 // IsTestnet returns true if the chain-id has the Evmos testnet EIP155 chain prefix.
 func IsTestnet(chainID string) bool {
 	return strings.HasPrefix(chainID, TestnetChainID)
+}
+
+func IsPointMainnet(chainID string) bool {
+	return strings.HasPrefix(chainID, PointMainnetChainID)
 }
 
 // IsSupportedKey returns true if the pubkey type is supported by the chain

@@ -6,11 +6,43 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
+	"github.com/pointnetwork/point-chain/v8/app/upgrades/point_v5"
 	v2 "github.com/pointnetwork/point-chain/v8/app/upgrades/v2"
 	v4 "github.com/pointnetwork/point-chain/v8/app/upgrades/v4"
 	v7 "github.com/pointnetwork/point-chain/v8/app/upgrades/v7"
 	"github.com/pointnetwork/point-chain/v8/types"
 )
+
+func SchedulePointForkUpgrade(ctx sdk.Context, app *Evmos) {
+	if !types.IsPointMainnet(ctx.ChainID()) {
+		return
+	}
+
+	upgradePlan := upgradetypes.Plan{
+		Height: ctx.BlockHeight(),
+	}
+
+	// handle mainnet forks with their corresponding upgrade name and info
+	switch ctx.BlockHeight() {
+	case point_v5.MainnetUpgradeHeight:
+		upgradePlan.Name = point_v5.UpgradeName
+		upgradePlan.Info = point_v5.UpgradeInfo
+	default:
+		// No-op
+		return
+	}
+
+	// schedule the upgrade plan to the current block hight, effectively performing
+	// a hard fork that uses the upgrade handler to manage the migration.
+	if err := app.UpgradeKeeper.ScheduleUpgrade(ctx, upgradePlan); err != nil {
+		panic(
+			fmt.Errorf(
+				"failed to schedule upgrade %s during BeginBlock at height %d: %w",
+				upgradePlan.Name, ctx.BlockHeight(), err,
+			),
+		)
+	}
+}
 
 // ScheduleForkUpgrade executes any necessary fork logic for based upon the current
 // block height and chain ID (mainnet or testnet). It sets an upgrade plan once
@@ -21,6 +53,11 @@ import (
 //  1. Release a non-breaking patch version so that the chain can set the scheduled upgrade plan at upgrade-height.
 //  2. Release the software defined in the upgrade-info
 func (app *Evmos) ScheduleForkUpgrade(ctx sdk.Context) {
+	if types.IsPointMainnet(ctx.ChainID()) {
+		SchedulePointForkUpgrade(ctx, app)
+		return
+	}
+
 	// NOTE: there are no testnet forks for the existing versions
 	if !types.IsMainnet(ctx.ChainID()) {
 		return
